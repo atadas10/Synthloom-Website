@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Synthloom — Documentation & Tutorials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="docs.css" />
+</head>
+<body class="docs-body">
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Synthloom</a>
+      <div class="nav-right">
+        <a href="index.html" class="btn btn--ghost btn--nav">← Back to overview</a>
+        <a href="http://localhost:3000" target="_blank" rel="noopener" class="btn btn--nav">Open App →</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="docs-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="docs-sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <p class="sidebar-heading">Getting Started</p>
+        <nav class="sidebar-nav">
+          <a href="#intro" class="sidebar-link active">Overview</a>
+          <a href="#login" class="sidebar-link">1 · Login</a>
+          <a href="#workspaces" class="sidebar-link">2 · Workspaces</a>
+        </nav>
+
+        <p class="sidebar-heading">Core Workflow</p>
+        <nav class="sidebar-nav">
+          <a href="#model" class="sidebar-link">3 · Data Model</a>
+          <a href="#generation" class="sidebar-link">4 · Generate Data</a>
+          <a href="#output" class="sidebar-link">5 · View Output</a>
+          <a href="#validation" class="sidebar-link">6 · Validate</a>
+          <a href="#pipeline" class="sidebar-link">7 · Pipeline View</a>
+        </nav>
+
+        <p class="sidebar-heading">Advanced</p>
+        <nav class="sidebar-nav">
+          <a href="#history" class="sidebar-link">8 · History</a>
+          <a href="#settings" class="sidebar-link">9 · AI Settings</a>
+          <a href="#admin" class="sidebar-link">10 · Admin Console</a>
+        </nav>
+
+        <div class="sidebar-cta">
+          <a href="http://localhost:3000" target="_blank" rel="noopener" class="btn btn--primary" style="width:100%;justify-content:center;">Open Synthloom →</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="docs-main">
+
+      <!-- ── INTRO ─────────────────────────────────────────────── -->
+      <section class="doc-section" id="intro">
+        <div class="doc-section-label">Introduction</div>
+        <h1 class="doc-h1">Synthloom — Step-by-Step Tutorial</h1>
+        <p class="doc-lead">
+          This guide walks you through every section of the Synthloom application.
+          Follow the steps in order for your first run, or jump directly to any
+          topic using the sidebar.
+        </p>
+
+        <div class="doc-callout doc-callout--info">
+          <strong>Prerequisites</strong> — You need valid credentials to access Synthloom. If you don't have an account yet, request access at <a href="https://www.synthloom.in" target="_blank" rel="noopener">www.synthloom.in</a>.
+        </div>
+
+        <h3 class="doc-h3">The core loop</h3>
+        <div class="flow-steps">
+          <div class="flow-step"><span class="flow-num">1</span><span>Login & pick a workspace</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><span class="flow-num">2</span><span>Define your data model</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><span class="flow-num">3</span><span>Run a generation job</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><span class="flow-num">4</span><span>Download & validate output</span></div>
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── 1 · LOGIN ─────────────────────────────────────────── -->
+      <section class="doc-section" id="login">
+        <div class="doc-section-label">Step 1</div>
+        <h2 class="doc-h2">Login</h2>
+        <p>Synthloom uses token-based authentication. Every user must log in before accessing any feature.</p>
+
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Open the application</div>
+            <p>Navigate to <a href="http://localhost:3000" target="_blank" rel="noopener"><code>https://www.synthloom.in</code></a>. You will be redirected to the Login page automatically.</p>
+          </li>
+          <li>
+            <div class="step-title">Enter your credentials</div>
+            <p>Type your <strong>username</strong> and <strong>password</strong> in the form fields.</p>
+          </li>
+          <li>
+            <div class="step-title">Click Sign In</div>
+            <p>On success, you are redirected to the Workspace Selector. Your session token is stored securely in memory for the duration of your browser session.</p>
+          </li>
+        </ol>
+
+        <div class="img-placeholder" data-label="Screenshot — Login page">
+          <div class="img-placeholder-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M6 21v-1a6 6 0 0112 0v1"/></svg>
+            <span>Login page screenshot</span>
+            <small>Replace this block with an actual screenshot</small>
+          </div>
+        </div>
+
+        <div class="doc-callout doc-callout--tip">
+          <strong>Tip</strong> — If your session expires, Synthloom will redirect you back to the Login page automatically. Simply sign in again to resume.
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── 2 · WORKSPACES ────────────────────────────────────── -->
+      <section class="doc-section" id="workspaces">
+        <div class="doc-section-label">Step 2</div>
+        <h2 class="doc-h2">Workspaces</h2>
+        <p>
+          Workspaces are isolated project containers. Each workspace has its own
+          configurations, generation history, and output files — completely separate from
+          other workspaces.
+        </p>
+
+        <h3 class="doc-h3">Creating a workspace</h3>
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Open the Workspace Selector</div>
+            <p>After login you land here automatically, or click your workspace name in the top navigation bar at any time.</p>
+          </li>
+          <li>
+            <div class="step-title">Click "New Workspace"</div>
+            <p>Enter a descriptive name (e.g. <em>Retail Demo</em>, <em>Healthcare Q2</em>). Names help you identify the project at a glance.</p>
+          </li>
+          <li>
+            <div class="step-title">Confirm creation</div>
+            <p>The new workspace is created and becomes your active context immediately. All subsequent actions apply to this workspace.</p>
+          </li>
+        </ol>
+
+        <div class="img-placeholder" data-label="Screenshot — Workspace Selector">
+          <div class="img-placeholder-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+            <span>Workspace Selector screenshot</span>
+            <small>Replace this block with an actual screenshot</small>
+          </div>
+        </div>
+
+        <h3 class="doc-h3">Other workspace actions</h3>
+        <div class="doc-table-wrap">
+          <table class="doc-table">
+            <thead><tr><th>Action</th><th>How</th></tr></thead>
+            <tbody>
+              <tr><td>Switch workspace</td><td>Click any workspace card to make it active</td></tr>
+              <tr><td>Rename workspace</td><td>Click the pencil icon next to the workspace name</td></tr>
+              <tr><td>Share workspace</td><td>Click the share icon → enter a colleague's email and choose a role (Viewer / Editor)</td></tr>
+              <tr><td>Delete workspace</td><td>Click the trash icon — this is permanent and removes all configurations and output</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── 3 · DATA MODEL ────────────────────────────────────── -->
+      <section class="doc-section" id="model">
+        <div class="doc-section-label">Step 3</div>
+        <h2 class="doc-h2">Defining Your Data Model</h2>
+        <p>
+          The <strong>Design Studio</strong> is where you describe
+          your data model — the entities you want to generate, the fields they contain,
+          and how they relate to each other.
+        </p>
+
+        <h3 class="doc-h3">Opening the Design Studio</h3>
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Navigate to "Design Studio"</div>
+            <p>Click <strong>Design Studio</strong> in the left navigation menu of the application.</p>
+          </li>
+          <li>
+            <div class="step-title">Start a new config or load an existing one</div>
+            <p>Click <strong>New</strong> to start from scratch, or select a previously saved configuration from the dropdown. You can also import a JSON file.</p>
+          </li>
+        </ol>
+
+        <div class="img-placeholder" data-label="Screenshot — Design Studio (empty state)">
+          <div class="img-placeholder-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <span>Design Studio screenshot</span>
+            <small>Replace this block with an actual screenshot</small>
+          </div>
+        </div>
+
+        <h3 class="doc-h3">Adding an entity</h3>
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Click "Add Entity"</div>
+            <p>An entity represents a table or dataset — for example <em>Customers</em>, <em>Orders</em>, or <em>Products</em>. Give it a clear singular name.</p>
+          </li>
+          <li>
+            <div class="step-title">Set the record count</div>
+            <p>Enter how many rows you want to generate for this entity (e.g. <code>1000</code> customers, <code>50000</code> orders).</p>
+          </li>
+        </ol>
+
+        <h3 class="doc-h3">Adding fields to an entity</h3>
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Click "+ Add Field"</div>
+            <p>A new field row appears. Give it a name matching your target schema (e.g. <code>customer_id</code>, <code>email</code>, <code>created_at</code>).</p>
+          </li>
+          <li>
+            <div class="step-title">Choose a field type</div>
+            <p>Click the type picker to open the full type menu. Types are organized into groups:</p>
+            <div class="doc-table-wrap">
+              <table class="doc-table">
+                <thead><tr><th>Group</th><th>Examples</th></tr></thead>
+                <tbody>
+                  <tr><td>Identity</td><td>UUID, Integer, Auto Increment</td></tr>
+                  <tr><td>Personal</td><td>Full Name, First Name, Email, Phone</td></tr>
+                  <tr><td>Location</td><td>City, State, Country, Zip Code, Address</td></tr>
+                  <tr><td>Date &amp; Time</td><td>Date, DateTime, Timestamp, Year</td></tr>
+                  <tr><td>Financial</td><td>Price, Currency, Amount, IBAN</td></tr>
+                  <tr><td>Internet</td><td>URL, IP Address, User Agent</td></tr>
+                  <tr><td>Business</td><td>Company, Job Title, Department</td></tr>
+                  <tr><td>Text</td><td>Paragraph, Sentence, Word, Lorem Ipsum</td></tr>
+                  <tr><td>Special</td><td>Foreign Key, Enum, Boolean, Constant</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <div class="step-title">Configure constraints (optional)</div>
+            <p>Depending on the type you may set min/max values, allowed enums, a specific format, or mark the field for AI enrichment.</p>
+          </li>
+        </ol>
+
+        <div class="img-placeholder" data-label="Screenshot — Adding a field with the type picker open">
+          <div class="img-placeholder-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>Field type picker screenshot</span>
+            <small>Replace this block with an actual screenshot</small>
+          </div>
+        </div>
+
+        <h3 class="doc-h3">Defining relationships (Foreign Keys)</h3>
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Add a Foreign Key field</div>
+            <p>Choose <strong>Foreign Key</strong> as the field type on the child entity (e.g. <code>customer_id</code> on the <em>Orders</em> entity).</p>
+          </li>
+          <li>
+            <div class="step-title">Select the referenced entity and field</div>
+            <p>Pick the parent entity (<em>Customers</em>) and the field it references (<code>customer_id</code>). Synthloom will automatically sample valid IDs from the parent during generation.</p>
+          </li>
+        </ol>
+
+        <div class="doc-callout doc-callout--tip">
+          <strong>Tip</strong> — Use the <strong>Relationship Graph</strong> tab to visually inspect all foreign key links between your entities before saving.
+        </div>
+
+        <div class="img-placeholder" data-label="Screenshot — Relationship Graph">
+          <div class="img-placeholder-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="5" cy="12" r="3"/><circle cx="19" cy="5" r="3"/><circle cx="19" cy="19" r="3"/><path d="M8 12l8-5.5M8 12l8 5.5"/></svg>
+            <span>Relationship Graph screenshot</span>
+            <small>Replace this block with an actual screenshot</small>
+          </div>
+        </div>
+
+        <h3 class="doc-h3">Saving your configuration</h3>
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Click the Save button</div>
+            <p>Enter a configuration name (e.g. <em>Retail v1</em>) and confirm. Configurations are stored in your active workspace and can be reused across multiple generation runs.</p>
+          </li>
+          <li>
+            <div class="step-title">Export to JSON (optional)</div>
+            <p>Use the <strong>Export JSON</strong> button to download the configuration file. You can version-control it in Git or share it with teammates.</p>
+          </li>
+        </ol>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── 4 · GENERATION ────────────────────────────────────── -->
+      <section class="doc-section" id="generation">
+        <div class="doc-section-label">Step 4</div>
+        <h2 class="doc-h2">Running a Generation Job</h2>
+        <p>
+          The <strong>Generate</strong> page lets you launch a generation job, configure output
+          options, and monitor progress in real time via WebSocket updates.
+        </p>
+
+        <h3 class="doc-h3">Starting a generation</h3>
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Navigate to "Generate"</div>
+            <p>Click <strong>Generate</strong> in the left navigation menu.</p>
+          </li>
+          <li>
+            <div class="step-title">Select a configuration</div>
+            <p>Choose the saved configuration you created in the previous step from the dropdown. The config name and entity list are shown for confirmation.</p>
+          </li>
+          <li>
+            <div class="step-title">Choose your output format</div>
+            <div class="doc-table-wrap">
+              <table class="doc-table">
+                <thead><tr><th>Format</th><th>Best for</th></tr></thead>
+                <tbody>
+                  <tr><td>CSV</td><td>Spreadsheets, general-purpose tools</td></tr>
+                  <tr><td>JSON</td><td>APIs, document stores, web apps</td></tr>
+                  <tr><td>Parquet</td><td>Big data pipelines, analytics engines</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <div class="step-title">Configure generation options</div>
+            <div class="doc-table-wrap">
+              <table class="doc-table">
+                <thead><tr><th>Option</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr><td>Seed</td><td>Integer seed for reproducibility. Same seed → identical output every time.</td></tr>
+                  <tr><td>Validate RI</td><td>Run referential integrity checks after generation (recommended).</td></tr>
+                  <tr><td>Parallel mode</td><td>Generate independent entity groups concurrently for speed.</td></tr>
+                  <tr><td>Enable AI</td><td>Pass marked fields through an LLM for realistic contextual text.</td></tr>
+                  <tr><td>AI Provider</td><td>OpenAI or Anthropic (configured in Settings).</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <div class="step-title">Click "Generate"</div>
+            <p>The job starts immediately. A real-time progress panel appears showing the current entity being processed, records written, and elapsed time.</p>
+          </li>
+        </ol>
+
+        <div class="img-placeholder" data-label="Screenshot — Generation page with job running">
+          <div class="img-placeholder-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            <span>Generation Dashboard screenshot</span>
+            <small>Replace this block with an actual screenshot</small>
+          </div>
+        </div>
+
+        <div class="doc-callout doc-callout--tip">
+          <strong>Tip</strong> — Enable <strong>Parallel mode</strong> for any configuration with multiple independent entities. Generation time drops significantly on multi-core machines.
+        </div>
+
+        <h3 class="doc-h3">Reading the progress panel</h3>
+        <p>While a job runs you can see:</p>
+        <ul class="doc-list">
+          <li><strong>Current entity</strong> — the entity currently being generated</li>
+          <li><strong>Records written</strong> — live count updated over WebSocket</li>
+          <li><strong>Stage</strong> — generation level (parallel groups are labelled)</li>
+          <li><strong>Elapsed time</strong> — wall-clock duration since job start</li>
+          <li><strong>Log tail</strong> — last few log lines from the backend for debugging</li>
+        </ul>
+
+        <div class="img-placeholder" data-label="Screenshot — Progress panel mid-job">
+          <div class="img-placeholder-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <span>Real-time progress panel screenshot</span>
+            <small>Replace this block with an actual screenshot</small>
+          </div>
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── 5 · OUTPUT ────────────────────────────────────────── -->
+      <section class="doc-section" id="output">
+        <div class="doc-section-label">Step 5</div>
+        <h2 class="doc-h2">Viewing &amp; Downloading Output</h2>
+        <p>
+          The <strong>Output Viewer</strong> gives you a searchable, paginated data table for
+          every generated file, plus one-click download options.
+        </p>
+
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Navigate to "Output"</div>
+            <p>After a job completes you are prompted to view the output, or navigate manually via the left menu.</p>
+          </li>
+          <li>
+            <div class="step-title">Select an output folder</div>
+            <p>Each generation run produces a timestamped folder. Click a folder to see the files it contains (one file per entity by default).</p>
+          </li>
+          <li>
+            <div class="step-title">Preview a file</div>
+            <p>Click any file to load an inline data table. Use the <strong>search bar</strong> to filter rows, the <strong>column selector</strong> to hide/show fields, and the <strong>pagination controls</strong> to navigate large datasets.</p>
+          </li>
+          <li>
+            <div class="step-title">Download</div>
+            <p>Click <strong>Download</strong> to save the file in its original format (CSV, JSON, or Parquet). You can also download all files in the folder as a ZIP.</p>
+          </li>
+        </ol>
+
+        <div class="img-placeholder" data-label="Screenshot — Output Viewer with data table">
+          <div class="img-placeholder-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 9v12"/></svg>
+            <span>Output Viewer screenshot</span>
+            <small>Replace this block with an actual screenshot</small>
+          </div>
+        </div>
+
+        <div class="doc-callout doc-callout--tip">
+          <strong>Tip</strong> — Use the column visibility toggle to hide ID or timestamp columns and focus on the business fields when reviewing data quality.
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── 6 · VALIDATION ────────────────────────────────────── -->
+      <section class="doc-section" id="validation">
+        <div class="doc-section-label">Step 6</div>
+        <h2 class="doc-h2">Validating Your Dataset</h2>
+        <p>
+          The <strong>Validation Results</strong> page shows a detailed report on the quality
+          of the last generation run — covering referential integrity, uniqueness,
+          value ranges, and custom business-rule compliance.
+        </p>
+
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Navigate to "Validation"</div>
+            <p>Click <strong>Validation</strong> in the left menu. Results from the most recent job are loaded automatically.</p>
+          </li>
+          <li>
+            <div class="step-title">Review the summary</div>
+            <p>A top-level summary card shows the overall pass/fail status and a count of checks performed.</p>
+          </li>
+          <li>
+            <div class="step-title">Inspect individual checks</div>
+            <p>Each check is listed with its entity, field, type, and result. Failed checks show the number of violations and example values.</p>
+          </li>
+        </ol>
+
+        <div class="img-placeholder" data-label="Screenshot — Validation Results page">
+          <div class="img-placeholder-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>Validation Results screenshot</span>
+            <small>Replace this block with an actual screenshot</small>
+          </div>
+        </div>
+
+        <h3 class="doc-h3">Validation check types</h3>
+        <div class="doc-table-wrap">
+          <table class="doc-table">
+            <thead><tr><th>Check</th><th>What it verifies</th></tr></thead>
+            <tbody>
+              <tr><td>Referential Integrity</td><td>Every FK value in child entities exists in the parent entity</td></tr>
+              <tr><td>Uniqueness</td><td>Fields marked unique have no duplicate values</td></tr>
+              <tr><td>Range</td><td>Numeric fields are within the configured min/max bounds</td></tr>
+              <tr><td>Not Null</td><td>Required fields contain no null values</td></tr>
+              <tr><td>Enum</td><td>Enum fields only contain allowed values</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="doc-callout doc-callout--warning">
+          <strong>Note</strong> — Validation is run automatically when <em>Validate RI</em> is enabled in the generation options. You can also trigger it manually from this page.
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── 7 · PIPELINE ──────────────────────────────────────── -->
+      <section class="doc-section" id="pipeline">
+        <div class="doc-section-label">Step 7</div>
+        <h2 class="doc-h2">Pipeline View</h2>
+        <p>
+          The <strong>Pipeline</strong> page renders an interactive dependency graph of your
+          data model, showing how entities are ordered for generation and which groups
+          can run in parallel.
+        </p>
+
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Navigate to "Pipeline"</div>
+            <p>Click <strong>Pipeline</strong> in the left menu.</p>
+          </li>
+          <li>
+            <div class="step-title">Inspect the dependency graph</div>
+            <p>Nodes represent entities. Directed edges represent foreign key dependencies. Entities at the same generation level are highlighted together — these run concurrently in parallel mode.</p>
+          </li>
+          <li>
+            <div class="step-title">Check for circular dependencies</div>
+            <p>If a circular dependency is detected it will be flagged here in red, preventing generation until resolved in the Design Studio.</p>
+          </li>
+        </ol>
+
+        <div class="img-placeholder" data-label="Screenshot — Pipeline dependency graph">
+          <div class="img-placeholder-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="12" cy="19" r="2"/><path d="M7 5h10M6.5 6.5l4 11M17.5 6.5l-4 11"/></svg>
+            <span>Pipeline graph screenshot</span>
+            <small>Replace this block with an actual screenshot</small>
+          </div>
+        </div>
+
+        <div class="doc-callout doc-callout--tip">
+          <strong>Tip</strong> — Use the Pipeline view as a sanity check before running large jobs. It instantly reveals unintended dependency chains that would force sequential generation.
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── 8 · HISTORY ───────────────────────────────────────── -->
+      <section class="doc-section" id="history">
+        <div class="doc-section-label">Step 8</div>
+        <h2 class="doc-h2">Generation History</h2>
+        <p>
+          The <strong>History</strong> page is an audit trail of every generation job run in
+          the current workspace, including timestamps, configuration used, record counts,
+          and final status.
+        </p>
+
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Navigate to "History"</div>
+            <p>Click <strong>History</strong> in the left menu.</p>
+          </li>
+          <li>
+            <div class="step-title">Browse past jobs</div>
+            <p>Each row shows the job ID, configuration name, start time, duration, total records, output format, and status (Completed / Failed / Cancelled).</p>
+          </li>
+          <li>
+            <div class="step-title">Jump to output or re-run</div>
+            <p>Click a job to open its output directly in the Output Viewer, or click <strong>Re-run</strong> to launch a new job with identical settings.</p>
+          </li>
+        </ol>
+
+        <div class="img-placeholder" data-label="Screenshot — History page">
+          <div class="img-placeholder-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>History page screenshot</span>
+            <small>Replace this block with an actual screenshot</small>
+          </div>
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── 9 · SETTINGS ──────────────────────────────────────── -->
+      <section class="doc-section" id="settings">
+        <div class="doc-section-label">Step 9</div>
+        <h2 class="doc-h2">AI Settings</h2>
+        <p>
+          The <strong>Settings</strong> page is where you configure AI provider credentials and
+          select the default model used for field enrichment.
+        </p>
+
+        <h3 class="doc-h3">Configuring OpenAI</h3>
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Navigate to "Settings"</div>
+            <p>Click <strong>Settings</strong> in the left menu.</p>
+          </li>
+          <li>
+            <div class="step-title">Enter your OpenAI API key</div>
+            <p>Paste the key (starts with <code>sk-…</code>) into the OpenAI card. Use the eye icon to verify it before saving.</p>
+          </li>
+          <li>
+            <div class="step-title">Choose a model</div>
+            <div class="doc-table-wrap">
+              <table class="doc-table">
+                <thead><tr><th>Model</th><th>Best for</th></tr></thead>
+                <tbody>
+                  <tr><td>GPT-4o (recommended)</td><td>Best quality / speed balance</td></tr>
+                  <tr><td>GPT-4o Mini</td><td>Large volumes at lower cost</td></tr>
+                  <tr><td>GPT-4 Turbo</td><td>Complex contextual generation</td></tr>
+                  <tr><td>GPT-3.5 Turbo</td><td>Fastest, lowest cost</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <div class="step-title">Click "Test Connection"</div>
+            <p>Synthloom sends a minimal ping to the API to verify the key is valid before saving.</p>
+          </li>
+          <li>
+            <div class="step-title">Save</div>
+            <p>The key is stored encrypted in the workspace settings. A masked hint (<code>sk-••••1234</code>) confirms the key is active.</p>
+          </li>
+        </ol>
+
+        <h3 class="doc-h3">Configuring Anthropic Claude</h3>
+        <p>The process mirrors OpenAI. Available Claude models:</p>
+        <div class="doc-table-wrap">
+          <table class="doc-table">
+            <thead><tr><th>Model</th><th>Best for</th></tr></thead>
+            <tbody>
+              <tr><td>Claude Haiku 4.5 (recommended)</td><td>Fast, cost-effective enrichment</td></tr>
+              <tr><td>Claude Opus 4.6</td><td>Highest quality output</td></tr>
+              <tr><td>Claude Sonnet 4.5</td><td>Balanced quality and speed</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="img-placeholder" data-label="Screenshot — Settings page with OpenAI configured">
+          <div class="img-placeholder-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
+            <span>Settings page screenshot</span>
+            <small>Replace this block with an actual screenshot</small>
+          </div>
+        </div>
+
+        <div class="doc-callout doc-callout--warning">
+          <strong>Note</strong> — API keys are stored per-workspace. If you switch workspaces, remember to configure the AI provider in each one separately.
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── 10 · ADMIN ────────────────────────────────────────── -->
+      <section class="doc-section" id="admin">
+        <div class="doc-section-label">Step 10</div>
+        <h2 class="doc-h2">Admin Console</h2>
+        <p>
+          The <strong>Admin Console</strong> is available to administrator accounts only.
+          It provides user management, workspace oversight, and system-level controls.
+        </p>
+
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Navigate to "Admin"</div>
+            <p>The Admin link appears in the navigation only if your account has the <strong>admin</strong> role.</p>
+          </li>
+          <li>
+            <div class="step-title">Manage users</div>
+            <p>View all registered users, their roles, and their active workspaces. You can promote users to admin, reset passwords, or deactivate accounts.</p>
+          </li>
+          <li>
+            <div class="step-title">Oversee workspaces</div>
+            <p>See all workspaces across all users — useful for monitoring storage usage and cleaning up orphaned workspaces.</p>
+          </li>
+          <li>
+            <div class="step-title">System settings</div>
+            <p>Configure global defaults such as the default AI provider, max parallel workers, and record count limits per workspace.</p>
+          </li>
+        </ol>
+
+        <div class="img-placeholder" data-label="Screenshot — Admin Console">
+          <div class="img-placeholder-inner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            <span>Admin Console screenshot</span>
+            <small>Replace this block with an actual screenshot</small>
+          </div>
+        </div>
+
+        <div class="doc-callout doc-callout--info">
+          <strong>Access control</strong> — Regular users cannot access the Admin Console. Attempting to navigate to it directly will redirect to the home page.
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── FOOTER ─────────────────────────────────────────────── -->
+      <div class="doc-footer">
+        <p>You've completed the Synthloom tutorial. Open the app and start generating.</p>
+        <a href="http://localhost:3000" target="_blank" rel="noopener" class="btn btn--primary btn--large">Open Synthloom →</a>
+        <a href="index.html" class="btn btn--ghost" style="margin-left:12px;">← Back to overview</a>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="docs.js"></script>
+</body>
+</html>

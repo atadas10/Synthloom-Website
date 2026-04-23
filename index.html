@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Synthloom — Intelligent Synthetic Data Generation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Synthloom</a>
+      <div class="nav-right">
+        <a href="docs.html" class="btn btn--ghost btn--nav">Documentation</a>
+        <a href="http://localhost:3000" target="_blank" rel="noopener" class="btn btn--nav">Open App &rarr;</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">Built for data teams &amp; developers</div>
+    <h1 class="hero-title">Stop hand-crafting fake data.<br /><span class="accent">Generate it.</span></h1>
+    <p class="hero-sub">
+      Synthloom produces millions of realistic, relationship-aware records in minutes —
+      so your team can test, prototype, and demo with confidence. No coding required.
+    </p>
+    <div class="hero-actions">
+      <a href="http://localhost:3000" target="_blank" rel="noopener" class="btn btn--primary">Launch Synthloom &rarr;</a>
+      <a href="docs.html" class="btn btn--ghost">Read the Docs</a>
+      <a href="#features" class="btn btn--ghost">Explore Features</a>
+    </div>
+    <div class="hero-stat-row">
+      <div class="stat">
+        <span class="stat-value">1M+</span>
+        <span class="stat-label">Records in minutes</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value">Zero</span>
+        <span class="stat-label">Coding required</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value">100%</span>
+        <span class="stat-label">Referentially intact</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-value">AI</span>
+        <span class="stat-label">Realistic enrichment</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES GRID -->
+  <section class="section" id="features">
+    <div class="section-label">Core Capabilities</div>
+    <h2 class="section-title">Everything you need to synthesize real-world data</h2>
+    <div class="features-grid">
+
+      <div class="feature-card feature-card--wide">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2v-4M9 21H5a2 2 0 01-2-2v-4m0 0h18"/></svg>
+        </div>
+        <h3>Referential Integrity</h3>
+        <p>Automatic foreign key management ensures every generated relationship is coherent. Customers, Orders, Products — all linked correctly, every time.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg>
+        </div>
+        <h3>DAG-Based Dependency Resolution</h3>
+        <p>A directed acyclic graph engine resolves entity ordering, detects circular dependencies, and unlocks parallel generation across independent layers.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h3>Parallel Generation</h3>
+        <p>Independent entity groups are generated concurrently, dramatically reducing wall-clock time for complex, multi-entity datasets.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <h3>AI Enrichment</h3>
+        <p>Plug in OpenAI GPT-4 or Anthropic Claude 3 to generate context-aware descriptions, narratives, and realistic text fields — with result caching to control costs.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7C5 4 4 5 4 7z"/><path d="M4 9h16"/></svg>
+        </div>
+        <h3>Multiple Output Formats</h3>
+        <p>Export as CSV, JSON, Parquet, or write directly to a SQL database. Parquet output is optimized for big data pipelines; JSON supports per-entity split files.</p>
+      </div>
+
+      <div class="feature-card feature-card--wide">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+        </div>
+        <h3>Declarative YAML Rules — Zero Coding Required</h3>
+        <p>Define entities, fields, constraints, and relationships in YAML. Rules are reusable, version-controllable, and shareable across teams.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3>Post-Generation Validation</h3>
+        <p>Automated validators check foreign key constraints, uniqueness, value ranges, and custom business logic after every generation run.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm0 8a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zm12 0a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/></svg>
+        </div>
+        <h3>Memory-Efficient Streaming</h3>
+        <p>Batch-based streaming generation means no dataset is ever fully loaded into memory — enabling billion-record generation on commodity hardware.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how-it-works">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">From data modeling to data files in six steps</h2>
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <h4>Define Model</h4>
+          <p>Declare your data model — entities, fields, types, and relationships — in YAML or via the visual Rule Editor.</p>
+        </div>
+      </div>
+      <div class="pipeline-arrow">&rarr;</div>
+      <div class="pipeline-step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <h4>Resolve Dependencies</h4>
+          <p>The DAG engine topologically sorts entities and groups independent ones for parallel execution.</p>
+        </div>
+      </div>
+      <div class="pipeline-arrow">&rarr;</div>
+      <div class="pipeline-step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <h4>Stream Generate</h4>
+          <p>Records are produced in memory-efficient batches. IDs are cached to satisfy foreign keys downstream.</p>
+        </div>
+      </div>
+      <div class="pipeline-arrow">&rarr;</div>
+      <div class="pipeline-step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <h4>AI Enrich</h4>
+          <p>Optional LLM pass adds realistic copy, descriptions, and contextual text to marked fields.</p>
+        </div>
+      </div>
+      <div class="pipeline-arrow">&rarr;</div>
+      <div class="pipeline-step">
+        <div class="step-num">05</div>
+        <div class="step-body">
+          <h4>Export</h4>
+          <p>Write output as CSV, JSON, or Parquet — ready for any downstream pipeline or analytics tool.</p>
+        </div>
+      </div>
+      <div class="pipeline-arrow">&rarr;</div>
+      <div class="pipeline-step">
+        <div class="step-num">06</div>
+        <div class="step-body">
+          <h4>Validate</h4>
+          <p>Automated validators confirm referential integrity, uniqueness, and business-rule compliance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UI & API SECTION -->
+  <section class="section section--alt" id="platform">
+    <div class="section-label">Platform</div>
+    <h2 class="section-title">A complete data engineering platform</h2>
+    <div class="platform-grid">
+
+      <div class="platform-block">
+        <h3 class="platform-block-title">Visual Web Interface</h3>
+        <ul class="platform-list">
+          <li>Rule Editor — drag-and-drop field configuration</li>
+          <li>Generation Dashboard — real-time progress monitoring</li>
+          <li>Output Viewer — browse and download generated files</li>
+          <li>Validation Results — quality assurance at a glance</li>
+          <li>Pipeline View — visualize entity dependency graph</li>
+          <li>History — audit trail of all generation runs</li>
+          <li>Admin Console — workspace and user management</li>
+        </ul>
+      </div>
+
+      <div class="platform-block">
+        <h3 class="platform-block-title">REST API & Real-Time</h3>
+        <ul class="platform-list">
+          <li>50+ REST endpoints covering all operations</li>
+          <li>WebSocket support for live generation progress</li>
+          <li>Background async task processing</li>
+          <li>Auto-generated Swagger / OpenAPI documentation</li>
+          <li>8 Pydantic data models with full validation</li>
+          <li>Comprehensive error handling and status codes</li>
+        </ul>
+      </div>
+
+      <div class="platform-block">
+        <h3 class="platform-block-title">DevOps Ready</h3>
+        <ul class="platform-list">
+          <li>Docker containers for backend and frontend</li>
+          <li>Docker Compose multi-service orchestration</li>
+          <li>PostgreSQL direct-write support</li>
+          <li>Environment-based configuration (.env)</li>
+          <li>Persistent volume mounts for workspaces</li>
+          <li>12-Factor application design</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DOCS BANNER -->
+  <section class="docs-banner">
+    <div class="docs-banner-inner">
+      <div class="docs-banner-text">
+        <p class="docs-banner-label">Step-by-step tutorials</p>
+        <h3 class="docs-banner-title">New to Synthloom? Start with the docs.</h3>
+        <p class="docs-banner-sub">Detailed walkthroughs for every section of the app — from defining your first data model to validating million-row outputs.</p>
+      </div>
+      <a href="docs.html" class="btn btn--primary">Read the Documentation &rarr;</a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2 class="cta-title">Ready to generate?</h2>
+    <p class="cta-sub">Open the app and start synthesizing data in under a minute.</p>
+    <a href="http://localhost:3000" target="_blank" rel="noopener" class="btn btn--primary btn--large">Open Synthloom &rarr;</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="logo">Synthloom</span>
+    <nav class="footer-links">
+      <a href="docs.html">Documentation</a>
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="http://localhost:3000" target="_blank" rel="noopener">Open App</a>
+    </nav>
+    <span class="footer-copy">&copy; 2026 Synthloom. Intelligent Synthetic Data Generation.</span>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
