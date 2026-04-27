@@ -197,6 +197,148 @@ a {
   margin: 0;
 }
 
+/* ── DEMO / BOOK A CALL SECTION ──────────────────────────── */
+
+.demo-section {
+  border-top: 1px solid var(--border);
+  background: linear-gradient(160deg, rgba(124,111,247,0.07) 0%, transparent 55%);
+}
+
+.demo-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.demo-copy {
+  padding-top: 16px;
+}
+
+.demo-sub {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-top: 20px;
+  margin-bottom: 32px;
+  max-width: 420px;
+}
+
+.demo-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.demo-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.55;
+}
+
+.demo-bullets li svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--accent);
+}
+
+.demo-calendly {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+/* ── Step 1: name/email capture ── */
+.demo-prefill {
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.demo-prefill-heading {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.demo-prefill-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.demo-prefill-fields input {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  padding: 12px 16px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.demo-prefill-fields input::placeholder {
+  color: var(--muted);
+}
+
+.demo-prefill-fields input:focus {
+  border-color: var(--accent);
+}
+
+.demo-prefill-btn {
+  align-self: flex-start;
+}
+
+.demo-prefill-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.demo-prefill-note em {
+  color: var(--accent-light);
+  font-style: normal;
+}
+
+/* ── Step 2: Calendly widget ── */
+.demo-calendly-widget {
+  display: none;
+  width: 100%;
+}
+
+.demo-calendly-widget .calendly-inline-widget,
+.demo-calendly-widget iframe {
+  width: 100%;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 630px;
+}
+
+@media (max-width: 900px) {
+  .demo-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
 /* ── FOOTER LINKS ────────────────────────────────────────── */
 
 .footer-links {
@@ -549,15 +691,12 @@ a {
 
 .pipeline-step {
   flex: 1;
-  min-width: 110px;
-  max-width: 120px;
-  min-height: 110px;
-  max-height: 120px;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 10px;
+  justify-content: flex-start;
+  padding: 16px 12px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
@@ -606,12 +745,12 @@ a {
 
 .pipeline-arrow {
   flex-shrink: 0;
+  align-self: center;
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding: 0 6px;
   color: var(--muted);
   font-size: 18px;
-  margin-top: 34px;
 }
 
 /* ── CTA SECTION ─────────────────────────────────────────── */

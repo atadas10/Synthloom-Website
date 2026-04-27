@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <!-- Calendly -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
 <body>
 
@@ -17,7 +20,8 @@
       <a href="index.html" class="logo">Synthloom</a>
       <div class="nav-right">
         <a href="docs.html" class="btn btn--ghost btn--nav">Documentation</a>
-        <a href="http://localhost:3000" target="_blank" rel="noopener" class="btn btn--nav">Open App &rarr;</a>
+        <a href="#book-demo" class="btn btn--ghost btn--nav">Book a Demo</a>
+        <a href="https://synthloom.atanuconsulting.in" target="_blank" rel="noopener" class="btn btn--nav">Open App &rarr;</a>
       </div>
     </div>
   </nav>
@@ -31,9 +35,9 @@
       so your team can test, prototype, and demo with confidence. No coding required.
     </p>
     <div class="hero-actions">
-      <a href="http://localhost:3000" target="_blank" rel="noopener" class="btn btn--primary">Launch Synthloom &rarr;</a>
+      <a href="https://synthloom.atanuconsulting.in" target="_blank" rel="noopener" class="btn btn--primary">Launch Synthloom &rarr;</a>
+      <a href="#book-demo" class="btn btn--ghost">Book a Demo</a>
       <a href="docs.html" class="btn btn--ghost">Read the Docs</a>
-      <a href="#features" class="btn btn--ghost">Explore Features</a>
     </div>
     <div class="hero-stat-row">
       <div class="stat">
@@ -54,6 +58,54 @@
       <div class="stat">
         <span class="stat-value">AI</span>
         <span class="stat-label">Realistic enrichment</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK A DEMO -->
+  <section class="section demo-section" id="book-demo">
+    <div class="demo-inner">
+      <div class="demo-copy">
+        <div class="section-label">Book a Demo</div>
+        <h2 class="section-title">See Synthloom<br />in action</h2>
+        <p class="demo-sub">
+          Get a personalised walkthrough of how Synthloom can accelerate your team's
+          data generation workflows — from model definition to million-row exports.
+        </p>
+        <ul class="demo-bullets">
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Live demo of the visual Rule Editor &amp; Pipeline view
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Walk through AI enrichment &amp; validation
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Q&amp;A tailored to your use case
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            30 minutes — no commitment required
+          </li>
+        </ul>
+      </div>
+      <div class="demo-calendly">
+        <!-- Step 1: name capture -->
+        <div class="demo-prefill" id="demo-prefill">
+          <p class="demo-prefill-heading">Who should we expect?</p>
+          <div class="demo-prefill-fields">
+            <input id="demo-prefill-name" type="text" placeholder="Your full name" autocomplete="name" />
+            <input id="demo-prefill-email" type="email" placeholder="Work email" autocomplete="email" />
+          </div>
+          <button class="btn btn--primary demo-prefill-btn" id="demo-prefill-submit">
+            Pick a time &rarr;
+          </button>
+          <p class="demo-prefill-note">Calendar subject will read: <em id="demo-subject-preview">Synthloom Demo: Your Name</em></p>
+        </div>
+        <!-- Step 2: Calendly widget (rendered by JS) -->
+        <div class="demo-calendly-widget" id="demo-calendly-widget"></div>
       </div>
     </div>
   </section>
@@ -93,7 +145,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         </div>
         <h3>AI Enrichment</h3>
-        <p>Plug in OpenAI GPT-4 or Anthropic Claude 3 to generate context-aware descriptions, narratives, and realistic text fields — with result caching to control costs.</p>
+        <p>Plug in OpenAI GPT or Anthropic Claude to generate context-aware descriptions, narratives, and realistic text fields — with result caching to control costs.</p>
       </div>
 
       <div class="feature-card">
@@ -248,7 +300,7 @@
   <section class="cta-section">
     <h2 class="cta-title">Ready to generate?</h2>
     <p class="cta-sub">Open the app and start synthesizing data in under a minute.</p>
-    <a href="http://localhost:3000" target="_blank" rel="noopener" class="btn btn--primary btn--large">Open Synthloom &rarr;</a>
+    <a href="https://synthloom.atanuconsulting.in" target="_blank" rel="noopener" class="btn btn--primary btn--large">Open Synthloom &rarr;</a>
   </section>
 
   <!-- FOOTER -->
@@ -258,7 +310,8 @@
       <a href="docs.html">Documentation</a>
       <a href="#features">Features</a>
       <a href="#how-it-works">How It Works</a>
-      <a href="http://localhost:3000" target="_blank" rel="noopener">Open App</a>
+      <a href="#book-demo">Book a Demo</a>
+      <a href="https://synthloom.atanuconsulting.in" target="_blank" rel="noopener">Open App</a>
     </nav>
     <span class="footer-copy">&copy; 2026 Synthloom. Intelligent Synthetic Data Generation.</span>
   </footer>

@@ -54,6 +54,52 @@
     }, { passive: true });
   }
 
+  // ── Demo / Calendly prefill ────────────────────────────────
+  function initDemoBooking() {
+    var btn = document.getElementById('demo-prefill-submit');
+    if (!btn) return;
+
+    var nameInput    = document.getElementById('demo-prefill-name');
+    var subjectPreview = document.getElementById('demo-subject-preview');
+
+    // Update the subject preview live as the user types
+    nameInput.addEventListener('input', function () {
+      var val = nameInput.value.trim();
+      subjectPreview.textContent = 'Synthloom Demo: ' + (val || 'Your Name');
+    });
+
+    btn.addEventListener('click', function () {
+      var name  = nameInput.value.trim();
+      var email = (document.getElementById('demo-prefill-email').value || '').trim();
+
+      if (!name) {
+        nameInput.focus();
+        return;
+      }
+
+      // Hide form, show widget container
+      document.getElementById('demo-prefill').style.display = 'none';
+      var widgetEl = document.getElementById('demo-calendly-widget');
+      widgetEl.style.display = 'block';
+
+      // Calendly subject is driven by the event type name in your Calendly
+      // dashboard — set it to: "Synthloom Demo: {Invitee Full Name}"
+      Calendly.initInlineWidget({
+        url: 'https://calendly.com/atanu-synthloom?hide_event_type_details=1&hide_gdpr_banner=1&background_color=111115&text_color=e4e4e7&primary_color=7c6ff7',
+        parentElement: widgetEl,
+        prefill: {
+          name:  name,
+          email: email
+        }
+      });
+    });
+
+    // Also allow Enter key on the email field to submit
+    document.getElementById('demo-prefill-email').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') btn.click();
+    });
+  }
+
   // ── Init ───────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', function () {
     initFadeUp();
@@ -61,5 +107,6 @@
     staggerChildren('.platform-grid', 80);
     staggerChildren('.pipeline', 70);
     initNavScroll();
+    initDemoBooking();
   });
 }());

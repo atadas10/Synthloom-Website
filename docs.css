@@ -472,6 +472,73 @@ code {
   flex-shrink: 0;
 }
 
+/* ── QUICK START GRID ────────────────────────────────────── */
+
+.doc-quickstart-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 28px 0 24px;
+}
+
+.doc-qs-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.2s;
+}
+
+.doc-qs-card:hover {
+  border-color: rgba(124, 111, 247, 0.35);
+}
+
+.doc-qs-num {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(124, 111, 247, 0.15);
+  color: var(--accent-light);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doc-qs-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.doc-qs-title a {
+  color: var(--accent-light);
+  text-decoration: none;
+}
+
+.doc-qs-title a:hover {
+  text-decoration: underline;
+}
+
+.doc-qs-card p {
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .doc-quickstart-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 
 @media (max-width: 1100px) {
