@@ -14,7 +14,20 @@
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="logo">Synthloom</a>
+      <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+        <span class="brand-icon" style="display:inline-flex;align-items:center;">
+          <!-- Updated logo SVG to match image -->
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+            <rect x="4" y="4" width="30" height="30" rx="8" fill="#E8EDF3"/>
+            <rect x="12" y="13" width="14" height="2.5" rx="1.25" fill="#818cf8"/>
+            <rect x="12" y="18" width="10" height="2.5" rx="1.25" fill="#6366f1"/>
+            <rect x="12" y="23" width="6" height="2.5" rx="1.25" fill="#4f46e5"/>
+          </svg>
+        </span>
+        <span class="brand-name" style="font-family:var(--font-display);font-size:1.7rem;font-weight:600;letter-spacing:-0.5px;">
+          <span style="color:#fff;">Synth</span><em class="brand-accent" style="font-style:normal;color:#6366f1;">loom</em>
+        </span>
+      </a>
       <div class="nav-right">
         <a href="docs.html" class="btn btn--ghost btn--nav">Documentation</a>
         <a href="http://localhost:3000" target="_blank" rel="noopener" class="btn btn--nav">Open App &rarr;</a>
