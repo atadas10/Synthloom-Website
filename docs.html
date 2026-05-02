@@ -28,27 +28,41 @@
     <!-- SIDEBAR -->
     <aside class="docs-sidebar" id="sidebar">
       <div class="sidebar-inner">
-        <p class="sidebar-heading">Getting Started</p>
+        <p class="sidebar-heading">Get Started</p>
         <nav class="sidebar-nav">
           <a href="#intro" class="sidebar-link active">Overview</a>
-          <a href="#login" class="sidebar-link">1 · Login</a>
-          <a href="#workspaces" class="sidebar-link">2 · Workspaces</a>
+          <a href="#quickstart" class="sidebar-link">Quick Start</a>
+          <a href="#login" class="sidebar-link">Login</a>
+          <a href="#workspaces" class="sidebar-link">Workspaces</a>
         </nav>
 
-        <p class="sidebar-heading">Core Workflow</p>
+        <p class="sidebar-heading">Design Studio</p>
         <nav class="sidebar-nav">
-          <a href="#model" class="sidebar-link">3 · Data Model</a>
-          <a href="#generation" class="sidebar-link">4 · Generate Data</a>
-          <a href="#output" class="sidebar-link">5 · View Output</a>
-          <a href="#validation" class="sidebar-link">6 · Validate</a>
-          <a href="#pipeline" class="sidebar-link">7 · Pipeline View</a>
+          <a href="#model" class="sidebar-link">Opening Design Studio</a>
+          <a href="#entities" class="sidebar-link">Adding Entities</a>
+          <a href="#fields" class="sidebar-link">Configuring Fields</a>
+          <a href="#fieldtypes" class="sidebar-link">Field Type Reference</a>
+          <a href="#relationships" class="sidebar-link">Relationships &amp; FK</a>
+          <a href="#er-diagram" class="sidebar-link">ER Diagram View</a>
+          <a href="#saving-config" class="sidebar-link">Saving &amp; Exporting</a>
         </nav>
 
-        <p class="sidebar-heading">Advanced</p>
+        <p class="sidebar-heading">Pipeline &amp; Generation</p>
         <nav class="sidebar-nav">
-          <a href="#history" class="sidebar-link">8 · History</a>
-          <a href="#settings" class="sidebar-link">9 · AI Settings</a>
-          <a href="#admin" class="sidebar-link">10 · Admin Console</a>
+          <a href="#pipeline-view" class="sidebar-link">Pipeline DAG View</a>
+          <a href="#parallel-groups" class="sidebar-link">Parallel Groups</a>
+          <a href="#generation" class="sidebar-link">Running a Job</a>
+          <a href="#generation-options" class="sidebar-link">Generation Options</a>
+          <a href="#progress" class="sidebar-link">Live Progress</a>
+          <a href="#output" class="sidebar-link">Output &amp; Download</a>
+        </nav>
+
+        <p class="sidebar-heading">Quality &amp; Advanced</p>
+        <nav class="sidebar-nav">
+          <a href="#validation" class="sidebar-link">Validation</a>
+          <a href="#history" class="sidebar-link">History</a>
+          <a href="#settings" class="sidebar-link">AI Settings</a>
+          <a href="#admin" class="sidebar-link">Admin Console</a>
         </nav>
 
         <div class="sidebar-cta">
@@ -111,6 +125,64 @@
               </div>
             </div>
           </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── QUICK START ───────────────────────────────────────── -->
+      <section class="doc-section" id="quickstart">
+        <div class="doc-section-label">Quick Start</div>
+        <h2 class="doc-h2">From zero to generated data in 5 minutes</h2>
+        <p>If you just want to get data out as fast as possible, follow this path. Each step links to the detailed section below.</p>
+
+        <div class="doc-quickstart-grid">
+          <div class="doc-qs-card">
+            <div class="doc-qs-num">1</div>
+            <div>
+              <div class="doc-qs-title"><a href="#login">Log in</a></div>
+              <p>Open the app, enter your credentials, land on the Workspace Selector.</p>
+            </div>
+          </div>
+          <div class="doc-qs-card">
+            <div class="doc-qs-num">2</div>
+            <div>
+              <div class="doc-qs-title"><a href="#workspaces">Create a workspace</a></div>
+              <p>Click <strong>New Workspace</strong>, name it (e.g. <em>My First Project</em>), confirm.</p>
+            </div>
+          </div>
+          <div class="doc-qs-card">
+            <div class="doc-qs-num">3</div>
+            <div>
+              <div class="doc-qs-title"><a href="#model">Open Design Studio</a></div>
+              <p>Add entities, configure fields with types, define any FK relationships.</p>
+            </div>
+          </div>
+          <div class="doc-qs-card">
+            <div class="doc-qs-num">4</div>
+            <div>
+              <div class="doc-qs-title"><a href="#pipeline-view">Check the Pipeline</a></div>
+              <p>Verify the dependency graph resolves correctly before running.</p>
+            </div>
+          </div>
+          <div class="doc-qs-card">
+            <div class="doc-qs-num">5</div>
+            <div>
+              <div class="doc-qs-title"><a href="#generation">Generate</a></div>
+              <p>Choose output format, click Generate, watch live progress.</p>
+            </div>
+          </div>
+          <div class="doc-qs-card">
+            <div class="doc-qs-num">6</div>
+            <div>
+              <div class="doc-qs-title"><a href="#output">Download &amp; Validate</a></div>
+              <p>Preview the data table, download your files, review validation results.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="doc-callout doc-callout--info">
+          <strong>Already familiar?</strong> Jump straight to the detailed section you need using the sidebar.
+        </div>
       </section>
 
       <div class="doc-divider"></div>
@@ -199,127 +271,448 @@
 
       <!-- ── 3 · DATA MODEL ────────────────────────────────────── -->
       <section class="doc-section" id="model">
-        <div class="doc-section-label">Step 3</div>
-        <h2 class="doc-h2">Defining Your Data Model</h2>
+        <div class="doc-section-label">Design Studio</div>
+        <h2 class="doc-h2">Design Studio — Overview</h2>
         <p>
-          The <strong>Design Studio</strong> is where you describe
-          your data model — the entities you want to generate, the fields they contain,
-          and how they relate to each other.
+          The <strong>Design Studio</strong> is the heart of Synthloom. It is where you describe
+          everything about the data you want to generate: what entities (tables) exist, what fields
+          each entity has, what data types those fields produce, and how entities relate to each other
+          through foreign keys.
         </p>
+        <p>Everything you define here is stored as a <strong>configuration</strong> (a JSON document) that is then handed to the pipeline engine to produce data.</p>
 
-        <h3 class="doc-h3">Opening the Design Studio</h3>
+        <div class="doc-callout doc-callout--info">
+          <strong>Design Studio vs Pipeline vs Generate</strong> — Design Studio defines <em>what</em> to make. Pipeline shows <em>in what order</em> it will be made. Generate <em>makes</em> it.
+        </div>
+
+        <h3 class="doc-h3">Opening Design Studio</h3>
         <ol class="doc-steps">
           <li>
-            <div class="step-title">Navigate to "Design Studio"</div>
-            <p>Click <strong>Design Studio</strong> in the left navigation menu of the application.</p>
+            <div class="step-title">Click "Design Studio" in the left navigation</div>
+            <p>This is available from any page once you have an active workspace.</p>
           </li>
           <li>
-            <div class="step-title">Start a new config or load an existing one</div>
-            <p>Click <strong>New</strong> to start from scratch, or select a previously saved configuration from the dropdown. You can also import a JSON file.</p>
+            <div class="step-title">Choose how to start</div>
+            <div class="doc-table-wrap">
+              <table class="doc-table">
+                <thead><tr><th>Option</th><th>When to use</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>New Config</strong></td><td>Starting from scratch for a new data model</td></tr>
+                  <tr><td><strong>Load saved config</strong></td><td>Continue editing a previously saved configuration</td></tr>
+                  <tr><td><strong>Import JSON</strong></td><td>Load a config file exported from another workspace or shared by a teammate</td></tr>
+                </tbody>
+              </table>
+            </div>
           </li>
         </ol>
 
         <div style="text-align:center;margin:24px 0;">
           <img src="image/3_Data_Model.png" alt="Design Studio screenshot" style="max-width:100%;height:auto;border-radius:8px;border:1px solid #e0e0e0;box-shadow:0 2px 8px #0001;" />
-          <div style="font-size:1rem;margin-top:8px;">Design Studio Screenshot</div>
-          
+          <div style="font-size:.875rem;color:var(--muted);margin-top:8px;">Design Studio — main view</div>
         </div>
+      </section>
 
-        <h3 class="doc-h3">Adding an entity</h3>
+      <div class="doc-divider"></div>
+
+      <!-- ── ENTITIES ───────────────────────────────────────────── -->
+      <section class="doc-section" id="entities">
+        <div class="doc-section-label">Design Studio</div>
+        <h2 class="doc-h2">Adding &amp; Configuring Entities</h2>
+        <p>
+          An <strong>entity</strong> maps to a single table or dataset in your output — for example
+          <em>Customers</em>, <em>Orders</em>, <em>Products</em>, or <em>Transactions</em>.
+          Every entity you add will produce its own output file.
+        </p>
+
+        <h3 class="doc-h3">Step-by-step: add your first entity</h3>
         <ol class="doc-steps">
           <li>
-            <div class="step-title">Click "Add Entity"</div>
-            <p>An entity represents a table or dataset — for example <em>Customers</em>, <em>Orders</em>, or <em>Products</em>. Give it a clear singular name.</p>
+            <div class="step-title">Click "+ Add Entity"</div>
+            <p>A new entity card appears in the editor panel with a default name like <code>Entity_1</code>.</p>
+          </li>
+          <li>
+            <div class="step-title">Name the entity</div>
+            <p>Use a clear, singular noun in PascalCase or snake_case to match your target schema — e.g. <code>Customer</code>, <code>order</code>, <code>product_variant</code>.</p>
           </li>
           <li>
             <div class="step-title">Set the record count</div>
-            <p>Enter how many rows you want to generate for this entity (e.g. <code>1000</code> customers, <code>50000</code> orders).</p>
+            <p>Enter how many rows to generate for this entity. Think about realistic ratios — if you want 1,000 customers and a real business would have ~5 orders per customer, set Orders to 5,000.</p>
+            <div class="doc-callout doc-callout--tip">
+              <strong>Tip</strong> — Start small (e.g. 100 rows) for your first run to validate structure quickly. Scale up once you're happy with the schema.
+            </div>
+          </li>
+          <li>
+            <div class="step-title">Add fields (see next section)</div>
+            <p>Click <strong>+ Add Field</strong> inside the entity card to begin adding fields.</p>
+          </li>
+          <li>
+            <div class="step-title">Repeat for each entity</div>
+            <p>Add all the entities your data model requires before moving on to relationships. It's easier to wire FK links once all entities exist.</p>
           </li>
         </ol>
 
-        <h3 class="doc-h3">Adding fields to an entity</h3>
+        <div class="doc-callout doc-callout--warning">
+          <strong>Entity ordering matters</strong> — Entities with no dependencies on other entities are generated first (or in parallel). Child entities that reference parent FKs are generated after their parents. The Pipeline view shows you this order visually.
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── FIELDS ─────────────────────────────────────────────── -->
+      <section class="doc-section" id="fields">
+        <div class="doc-section-label">Design Studio</div>
+        <h2 class="doc-h2">Configuring Fields</h2>
+        <p>Fields are the columns within an entity. Each field has a <strong>name</strong>, a <strong>type</strong>, and optional <strong>constraints</strong>.</p>
+
+        <h3 class="doc-h3">Adding a field</h3>
         <ol class="doc-steps">
           <li>
-            <div class="step-title">Click "+ Add Field"</div>
-            <p>A new field row appears. Give it a name matching your target schema (e.g. <code>customer_id</code>, <code>email</code>, <code>created_at</code>).</p>
+            <div class="step-title">Click "+ Add Field" inside an entity card</div>
+            <p>A new field row appears with an empty name and the default type <code>String</code>.</p>
           </li>
           <li>
-            <div class="step-title">Choose a field type</div>
-            <p>Click the type picker to open the full type menu. Types are organized into groups:</p>
+            <div class="step-title">Enter the field name</div>
+            <p>Use the exact column name you want in the output file — e.g. <code>customer_id</code>, <code>email</code>, <code>signup_date</code>, <code>order_total</code>.</p>
+          </li>
+          <li>
+            <div class="step-title">Choose a type</div>
+            <p>Click the type picker button to open the full type menu. See the <a href="#fieldtypes">Field Type Reference</a> below for all available types.</p>
+          </li>
+          <li>
+            <div class="step-title">Set constraints (if applicable)</div>
+            <p>Depending on the type chosen, additional options appear:</p>
             <div class="doc-table-wrap">
               <table class="doc-table">
-                <thead><tr><th>Group</th><th>Examples</th></tr></thead>
+                <thead><tr><th>Constraint</th><th>Applies to</th><th>What it does</th></tr></thead>
                 <tbody>
-                  <tr><td>Identity</td><td>UUID, Integer, Auto Increment</td></tr>
-                  <tr><td>Personal</td><td>Full Name, First Name, Email, Phone</td></tr>
-                  <tr><td>Location</td><td>City, State, Country, Zip Code, Address</td></tr>
-                  <tr><td>Date &amp; Time</td><td>Date, DateTime, Timestamp, Year</td></tr>
-                  <tr><td>Financial</td><td>Price, Currency, Amount, IBAN</td></tr>
-                  <tr><td>Internet</td><td>URL, IP Address, User Agent</td></tr>
-                  <tr><td>Business</td><td>Company, Job Title, Department</td></tr>
-                  <tr><td>Text</td><td>Paragraph, Sentence, Word, Lorem Ipsum</td></tr>
-                  <tr><td>Special</td><td>Foreign Key, Enum, Boolean, Constant</td></tr>
+                  <tr><td>Min / Max</td><td>Numeric, Date, DateTime</td><td>Clamps the generated value within a range</td></tr>
+                  <tr><td>Unique</td><td>Any field</td><td>Guarantees no duplicate values across the dataset</td></tr>
+                  <tr><td>Nullable</td><td>Any field</td><td>Allows a configurable percentage of null values</td></tr>
+                  <tr><td>Null %</td><td>Any nullable field</td><td>Percentage of rows that will receive a null (0–100)</td></tr>
+                  <tr><td>Enum values</td><td>Enum type</td><td>Comma-separated list of allowed values to sample from</td></tr>
+                  <tr><td>Format</td><td>String, Date</td><td>e.g. <code>YYYY-MM-DD</code> for dates, regex patterns for strings</td></tr>
+                  <tr><td>AI Enrich</td><td>String, Paragraph</td><td>Marks this field to be post-processed by the configured LLM</td></tr>
+                  <tr><td>Prefix / Suffix</td><td>String, ID</td><td>Static text prepended/appended to every generated value</td></tr>
                 </tbody>
               </table>
             </div>
           </li>
           <li>
-            <div class="step-title">Configure constraints (optional)</div>
-            <p>Depending on the type you may set min/max values, allowed enums, a specific format, or mark the field for AI enrichment.</p>
-          </li>
-        </ol>
-
-        <div style="text-align:center;margin:24px 0;">
-          <img src="image/3_Type_Picker.png" alt="Field Type Picker Screenshot" style="max-width:100%;height:auto;border-radius:8px;border:1px solid #e0e0e0;box-shadow:0 2px 8px #0001;" />
-          <div style="font-size:1rem;margin-top:8px;">Field Type Picker Screenshot</div>
-          
-        </div>
-
-        <h3 class="doc-h3">Defining relationships (Foreign Keys)</h3>
-        <ol class="doc-steps">
-          <li>
-            <div class="step-title">Add a Foreign Key field</div>
-            <p>Choose <strong>Foreign Key</strong> as the field type on the child entity (e.g. <code>customer_id</code> on the <em>Orders</em> entity).</p>
+            <div class="step-title">Reorder fields (optional)</div>
+            <p>Drag the handle on the left of any field row to reorder. Column order in the output matches field order in the editor.</p>
           </li>
           <li>
-            <div class="step-title">Select the referenced entity and field</div>
-            <p>Pick the parent entity (<em>Customers</em>) and the field it references (<code>customer_id</code>). Synthloom will automatically sample valid IDs from the parent during generation.</p>
-          </li>
-        </ol>
-
-        <div class="doc-callout doc-callout--tip">
-          <strong>Tip</strong> — Use the <strong>Relationship Graph</strong> tab to visually inspect all foreign key links between your entities before saving.
-        </div>
-
-        <div style="text-align:center;margin:24px 0;">
-          <img src="image/3_Data_Model.png" alt="Relationship Graph Screenshot" style="max-width:100%;height:auto;border-radius:8px;border:1px solid #e0e0e0;box-shadow:0 2px 8px #0001;" />
-          <div style="font-size:1rem;margin-top:8px;">Relationship Graph Screenshot</div>
-          
-        </div>
-        <div style="text-align:center;margin:24px 0;">
-          <img src="image/3_Data_Model_ER.png" alt="Design Studio ER Diagram Screenshot" style="max-width:100%;height:auto;border-radius:8px;border:1px solid #e0e0e0;box-shadow:0 2px 8px #0001;" />
-          <div style="font-size:1rem;margin-top:8px;">Design Studio ER Diagram Screenshot</div>
-          
-        </div>
-
-        <h3 class="doc-h3">Saving your configuration</h3>
-        <ol class="doc-steps">
-          <li>
-            <div class="step-title">Click the Save button</div>
-            <p>Enter a configuration name (e.g. <em>Retail v1</em>) and confirm. Configurations are stored in your active workspace and can be reused across multiple generation runs.</p>
-          </li>
-          <li>
-            <div class="step-title">Export to JSON (optional)</div>
-            <p>Use the <strong>Export JSON</strong> button to download the configuration file. You can version-control it in Git or share it with teammates.</p>
+            <div class="step-title">Delete a field</div>
+            <p>Click the trash icon at the right end of the field row. This cannot be undone once the config is saved.</p>
           </li>
         </ol>
       </section>
 
       <div class="doc-divider"></div>
 
-      <!-- ── 4 · GENERATION ────────────────────────────────────── -->
+      <!-- ── FIELD TYPES ────────────────────────────────────────── -->
+      <section class="doc-section" id="fieldtypes">
+        <div class="doc-section-label">Design Studio</div>
+        <h2 class="doc-h2">Field Type Reference</h2>
+        <p>Synthloom provides a rich library of types. Click the type picker on any field to browse them by category.</p>
+
+        <div style="text-align:center;margin:24px 0;">
+          <img src="image/3_Type_Picker.png" alt="Field Type Picker" style="max-width:100%;height:auto;border-radius:8px;border:1px solid #e0e0e0;box-shadow:0 2px 8px #0001;" />
+          <div style="font-size:.875rem;color:var(--muted);margin-top:8px;">Field Type Picker — full type library</div>
+        </div>
+
+        <div class="doc-table-wrap">
+          <table class="doc-table">
+            <thead><tr><th>Category</th><th>Types</th><th>Example output</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Identity</strong></td>
+                <td>UUID, Integer ID, Auto Increment</td>
+                <td><code>a3f9c1d2-…</code>, <code>1001</code>, <code>1</code>, <code>2</code>, …</td>
+              </tr>
+              <tr>
+                <td><strong>Personal</strong></td>
+                <td>Full Name, First Name, Last Name, Email, Phone, Username, Password Hash</td>
+                <td><code>Jane Smith</code>, <code>jane.smith@email.com</code>, <code>+1-555-0199</code></td>
+              </tr>
+              <tr>
+                <td><strong>Location</strong></td>
+                <td>Street Address, City, State, Country, Zip Code, Latitude, Longitude</td>
+                <td><code>742 Evergreen Terrace</code>, <code>Springfield</code>, <code>IL</code></td>
+              </tr>
+              <tr>
+                <td><strong>Date &amp; Time</strong></td>
+                <td>Date, DateTime, Timestamp (Unix), Time, Year, Month, Day</td>
+                <td><code>2024-03-15</code>, <code>2024-03-15T09:23:11Z</code>, <code>1710494591</code></td>
+              </tr>
+              <tr>
+                <td><strong>Financial</strong></td>
+                <td>Price, Currency Code, Amount, Credit Card, IBAN, BIC</td>
+                <td><code>149.99</code>, <code>USD</code>, <code>4111 1111 1111 1111</code></td>
+              </tr>
+              <tr>
+                <td><strong>Internet</strong></td>
+                <td>URL, Domain, IPv4, IPv6, MAC Address, User Agent, Slug</td>
+                <td><code>https://example.com/path</code>, <code>192.168.1.42</code></td>
+              </tr>
+              <tr>
+                <td><strong>Business</strong></td>
+                <td>Company Name, Job Title, Department, Industry, EIN</td>
+                <td><code>Acme Corp</code>, <code>Senior Data Engineer</code>, <code>Finance</code></td>
+              </tr>
+              <tr>
+                <td><strong>Text</strong></td>
+                <td>Word, Sentence, Paragraph, Lorem Ipsum (N words)</td>
+                <td><code>Realistic sentence about the topic.</code></td>
+              </tr>
+              <tr>
+                <td><strong>Special</strong></td>
+                <td>Foreign Key, Enum, Boolean, Constant, Null, Computed</td>
+                <td>References parent entity IDs; fixed enum list; <code>true</code>/<code>false</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="doc-callout doc-callout--tip">
+          <strong>AI Enrich</strong> — Any <em>String</em> or <em>Paragraph</em> field can be flagged for AI enrichment. After base generation, a prompt is sent to your configured LLM with context about the record, and the field value is replaced with a contextually realistic result. Enable it on fields like <code>product_description</code> or <code>support_notes</code>.
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── RELATIONSHIPS ──────────────────────────────────────── -->
+      <section class="doc-section" id="relationships">
+        <div class="doc-section-label">Design Studio</div>
+        <h2 class="doc-h2">Relationships &amp; Foreign Keys</h2>
+        <p>
+          Relationships tell Synthloom how entities connect. A <strong>Foreign Key (FK)</strong> field
+          in a child entity references the ID field of a parent entity. At generation time, Synthloom
+          samples real IDs from the already-generated parent and assigns them to the FK column —
+          guaranteeing referential integrity automatically.
+        </p>
+
+        <h3 class="doc-h3">Step-by-step: create a FK relationship</h3>
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Go to the child entity</div>
+            <p>For example, <em>Orders</em> references <em>Customers</em>, so <em>Orders</em> is the child.</p>
+          </li>
+          <li>
+            <div class="step-title">Add or select the FK field</div>
+            <p>Click <strong>+ Add Field</strong>. Name it <code>customer_id</code> (or whatever matches your schema).</p>
+          </li>
+          <li>
+            <div class="step-title">Set the type to "Foreign Key"</div>
+            <p>Open the type picker → Special → <strong>Foreign Key</strong>.</p>
+          </li>
+          <li>
+            <div class="step-title">Select the referenced entity</div>
+            <p>A dropdown appears listing all other entities in the config. Choose <em>Customer</em>.</p>
+          </li>
+          <li>
+            <div class="step-title">Select the referenced field</div>
+            <p>Choose the field that acts as the primary key — typically <code>customer_id</code> or <code>id</code>. Synthloom will sample values from this field.</p>
+          </li>
+          <li>
+            <div class="step-title">Set cardinality (optional)</div>
+            <p>If you want each customer to have a bounded number of orders, set a <strong>Max refs per parent</strong> value. Leave blank for unlimited.</p>
+          </li>
+          <li>
+            <div class="step-title">Verify in the Relationship Graph</div>
+            <p>Switch to the <strong>Graph</strong> tab to see a visual representation of all FK edges. Confirm the arrow runs in the right direction (child → parent).</p>
+          </li>
+        </ol>
+
+        <div class="doc-callout doc-callout--warning">
+          <strong>Circular dependencies</strong> — If Entity A references Entity B and Entity B references Entity A, a circular dependency is created. Synthloom will detect this and block generation, flagging the cycle in the Pipeline view. Resolve it by removing one of the FK links or introducing an intermediate join entity.
+        </div>
+
+        <h3 class="doc-h3">Multi-level relationships</h3>
+        <p>You can chain as many levels as your model requires:</p>
+        <div class="doc-callout doc-callout--info">
+          <code>Customer → Order → OrderLineItem → Product</code><br /><br />
+          Each entity is generated in the correct topological order. <em>Customer</em> first, then <em>Order</em> (sampling Customer IDs), then <em>OrderLineItem</em> (sampling Order IDs and Product IDs), and so on.
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── ER DIAGRAM ─────────────────────────────────────────── -->
+      <section class="doc-section" id="er-diagram">
+        <div class="doc-section-label">Design Studio</div>
+        <h2 class="doc-h2">ER Diagram View</h2>
+        <p>
+          The <strong>ER Diagram</strong> tab inside Design Studio renders your data model as an
+          entity-relationship diagram — showing all entities, their fields, and the FK links between them.
+          It updates live as you make changes.
+        </p>
+
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Click the "ER Diagram" tab</div>
+            <p>Located at the top of the Design Studio panel, next to the default "Fields" tab.</p>
+          </li>
+          <li>
+            <div class="step-title">Review the diagram</div>
+            <p>Each entity is rendered as a card listing its fields. FK relationships are drawn as directed arrows connecting child fields to the parent entity's key field.</p>
+          </li>
+          <li>
+            <div class="step-title">Interact with the graph</div>
+            <p>Drag entity cards to rearrange the layout. Hover an entity to highlight its immediate relationships. Click an arrow to see the FK details.</p>
+          </li>
+          <li>
+            <div class="step-title">Use it as a validation check</div>
+            <p>Before saving and generating, confirm that every expected relationship is correctly represented. Missing arrows indicate a FK link was not set up.</p>
+          </li>
+        </ol>
+
+        <div style="text-align:center;margin:24px 0;">
+          <img src="image/3_Data_Model_ER.png" alt="ER Diagram Screenshot" style="max-width:100%;height:auto;border-radius:8px;border:1px solid #e0e0e0;box-shadow:0 2px 8px #0001;" />
+          <div style="font-size:.875rem;color:var(--muted);margin-top:8px;">ER Diagram — live relationship graph</div>
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── SAVING CONFIG ──────────────────────────────────────── -->
+      <section class="doc-section" id="saving-config">
+        <div class="doc-section-label">Design Studio</div>
+        <h2 class="doc-h2">Saving &amp; Exporting Configurations</h2>
+
+        <h3 class="doc-h3">Save to workspace</h3>
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Click the Save button</div>
+            <p>Located in the top action bar of Design Studio. A modal appears prompting for a configuration name.</p>
+          </li>
+          <li>
+            <div class="step-title">Name the configuration</div>
+            <p>Use a descriptive version-aware name — e.g. <em>Retail_v2</em>, <em>Healthcare_Q2_2026</em>. You can have multiple configurations in a single workspace.</p>
+          </li>
+          <li>
+            <div class="step-title">Confirm</div>
+            <p>The config is persisted in the workspace. It will appear in the load dropdown next time you open Design Studio, and in the Pipeline / Generate page for selection.</p>
+          </li>
+        </ol>
+
+        <h3 class="doc-h3">Export to JSON</h3>
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Click "Export JSON"</div>
+            <p>Downloads the configuration as a <code>.json</code> file to your browser's download folder.</p>
+          </li>
+          <li>
+            <div class="step-title">Version-control it</div>
+            <p>The JSON is self-contained and human-readable. Commit it to Git alongside your application code so your test data schema is tracked with your codebase.</p>
+          </li>
+          <li>
+            <div class="step-title">Import into another workspace</div>
+            <p>Use <strong>Import JSON</strong> in any workspace to load the same configuration — useful for sharing between team members or promoting across environments.</p>
+          </li>
+        </ol>
+
+        <div class="doc-callout doc-callout--tip">
+          <strong>Team collaboration tip</strong> — Store your exported JSON configs in a shared Git repository. Each teammate imports the config into their own workspace, generates locally, and keeps outputs isolated.
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── PIPELINE VIEW ──────────────────────────────────────── -->
+      <section class="doc-section" id="pipeline-view">
+        <div class="doc-section-label">Pipeline &amp; Generation</div>
+        <h2 class="doc-h2">Pipeline DAG View</h2>
+        <p>
+          Before generating data, Synthloom analyses your configuration and builds a
+          <strong>Directed Acyclic Graph (DAG)</strong> of entity dependencies. The
+          <strong>Pipeline</strong> page lets you inspect this graph interactively —
+          so you can verify the correct generation order before committing to a large run.
+        </p>
+
+        <h3 class="doc-h3">What the DAG represents</h3>
+        <p>Each <strong>node</strong> is an entity. Each <strong>directed edge</strong> (arrow) is a foreign key dependency — it points from the child entity to the parent it depends on. An entity can only be generated after all its parents have completed.</p>
+
+        <div class="doc-callout doc-callout--info">
+          <strong>How topological sorting works</strong> — Synthloom performs a topological sort of the DAG (Kahn's algorithm). Entities with no dependencies are assigned to <em>level 0</em>, entities that only depend on level-0 entities are assigned to <em>level 1</em>, and so on. All entities within the same level are independent of each other and can run in parallel.
+        </div>
+
+        <h3 class="doc-h3">Step-by-step: reading the Pipeline view</h3>
+        <ol class="doc-steps">
+          <li>
+            <div class="step-title">Navigate to "Pipeline" in the top nav</div>
+            <p>Select the saved configuration from the dropdown at the top of the page. The DAG renders immediately.</p>
+          </li>
+          <li>
+            <div class="step-title">Identify generation levels</div>
+            <p>Entities are visually grouped by level — entities at the same horizontal level run concurrently in parallel mode. A typical retail model might look like:</p>
+            <div class="doc-callout doc-callout--info">
+              <strong>Level 0 (parallel):</strong> Customer, Product, Category<br />
+              <strong>Level 1 (parallel):</strong> Order, ProductVariant<br />
+              <strong>Level 2 (sequential):</strong> OrderLineItem (depends on Order + Product)
+            </div>
+          </li>
+          <li>
+            <div class="step-title">Hover a node for details</div>
+            <p>Hovering any entity node shows its field count, record count, and the list of entities it depends on or is depended on by.</p>
+          </li>
+          <li>
+            <div class="step-title">Follow the arrows</div>
+            <p>Arrows point from child to parent. If <em>OrderLineItem → Order</em>, it means OrderLineItem has a FK referencing Order, so Order must exist first.</p>
+          </li>
+          <li>
+            <div class="step-title">Check for circular dependency warnings</div>
+            <p>If any cycle is detected, the affected nodes are highlighted in red and a warning banner explains which entities form the cycle. Return to Design Studio to break the cycle before proceeding.</p>
+          </li>
+        </ol>
+
+        <div style="text-align:center;margin:24px 0;">
+          <img src="image/7_Pipeline_History.png" alt="Pipeline DAG Screenshot" style="max-width:100%;height:auto;border-radius:8px;border:1px solid #e0e0e0;box-shadow:0 2px 8px #0001;" />
+          <div style="font-size:.875rem;color:var(--muted);margin-top:8px;">Pipeline DAG — entity dependency graph</div>
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── PARALLEL GROUPS ───────────────────────────────────── -->
+      <section class="doc-section" id="parallel-groups">
+        <div class="doc-section-label">Pipeline &amp; Generation</div>
+        <h2 class="doc-h2">Understanding Parallel Groups</h2>
+        <p>
+          Parallel groups are the key to Synthloom's speed. When you enable <strong>Parallel mode</strong>
+          in the generation options, all entities within the same DAG level are generated concurrently
+          in separate threads — dramatically reducing wall-clock time for complex, multi-entity configs.
+        </p>
+
+        <div class="doc-table-wrap">
+          <table class="doc-table">
+            <thead><tr><th>Scenario</th><th>Sequential time</th><th>Parallel time (approx.)</th></tr></thead>
+            <tbody>
+              <tr><td>3 independent root entities, 100K rows each</td><td>~30s</td><td>~10s</td></tr>
+              <tr><td>5-entity chain (no parallelism possible)</td><td>~50s</td><td>~50s (no gain)</td></tr>
+              <tr><td>Mixed model: 2 levels, 4 entities in level 0</td><td>~80s</td><td>~25s</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="doc-h3">Design tips for maximum parallelism</h3>
+        <ul class="doc-list">
+          <li>Keep lookup/reference entities (e.g. <em>Category</em>, <em>Status</em>, <em>Region</em>) at level 0 with no FKs to other entities.</li>
+          <li>Avoid chaining more than 3–4 FK levels deep. Each additional level adds a sequential step.</li>
+          <li>If two entities have a many-to-many relationship, model the join entity separately — it will be assigned to the deepest level required by its parents.</li>
+          <li>Use the Pipeline view to confirm which level each entity sits on before committing to a large run.</li>
+        </ul>
+
+        <div class="doc-callout doc-callout--warning">
+          <strong>Thread safety</strong> — ID caches are thread-safe. Parent entity IDs are written to an in-memory cache before child generation begins, so all threads access consistent data. You do not need to worry about race conditions.
+        </div>
+      </section>
+
+      <div class="doc-divider"></div>
+
+      <!-- ── GENERATION ─────────────────────────────────────────── -->
       <section class="doc-section" id="generation">
-        <div class="doc-section-label">Step 4</div>
+        <div class="doc-section-label">Pipeline &amp; Generation</div>
         <h2 class="doc-h2">Running a Generation Job</h2>
         <p>
           The <strong>Generate</strong> page lets you launch a generation job, configure output
@@ -401,7 +794,7 @@
 
       <!-- ── 5 · OUTPUT ────────────────────────────────────────── -->
       <section class="doc-section" id="output">
-        <div class="doc-section-label">Step 5</div>
+        <div class="doc-section-label">Pipeline &amp; Generation</div>
         <h2 class="doc-h2">Viewing &amp; Downloading Output</h2>
         <p>
           The <strong>Output Viewer</strong> gives you a searchable, paginated data table for
@@ -442,7 +835,7 @@
 
       <!-- ── 6 · VALIDATION ────────────────────────────────────── -->
       <section class="doc-section" id="validation">
-        <div class="doc-section-label">Step 6</div>
+        <div class="doc-section-label">Quality &amp; Advanced</div>
         <h2 class="doc-h2">Validating Your Dataset</h2>
         <p>
           The <strong>Validation Results</strong> page shows a detailed report on the quality
@@ -492,47 +885,9 @@
 
       <div class="doc-divider"></div>
 
-      <!-- ── 7 · PIPELINE ──────────────────────────────────────── -->
-      <section class="doc-section" id="pipeline">
-        <div class="doc-section-label">Step 7</div>
-        <h2 class="doc-h2">Pipeline View</h2>
-        <p>
-          The <strong>Pipeline</strong> page renders an interactive dependency graph of your
-          data model, showing how entities are ordered for generation and which groups
-          can run in parallel.
-        </p>
-
-        <ol class="doc-steps">
-          <li>
-            <div class="step-title">Navigate to "Pipeline"</div>
-            <p>Click <strong>Pipeline</strong> in the left menu.</p>
-          </li>
-          <li>
-            <div class="step-title">Inspect the dependency graph</div>
-            <p>Nodes represent entities. Directed edges represent foreign key dependencies. Entities at the same generation level are highlighted together — these run concurrently in parallel mode.</p>
-          </li>
-          <li>
-            <div class="step-title">Check for circular dependencies</div>
-            <p>If a circular dependency is detected it will be flagged here in red, preventing generation until resolved in the Design Studio.</p>
-          </li>
-        </ol>
-
-        <div style="text-align:center;margin:24px 0;">
-          <img src="image/7_Pipeline_History.png" alt="Pipeline Graph Screenshot" style="max-width:100%;height:auto;border-radius:8px;border:1px solid #e0e0e0;box-shadow:0 2px 8px #0001;" />
-          <div style="font-size:1rem;margin-top:8px;">Pipeline Graph Screenshot</div>
-          
-        </div>
-
-        <div class="doc-callout doc-callout--tip">
-          <strong>Tip</strong> — Use the Pipeline view as a sanity check before running large jobs. It instantly reveals unintended dependency chains that would force sequential generation.
-        </div>
-      </section>
-
-      <div class="doc-divider"></div>
-
-      <!-- ── 8 · HISTORY ───────────────────────────────────────── -->
+      <!-- ── HISTORY ──────────────────────────────────────────────── -->
       <section class="doc-section" id="history">
-        <div class="doc-section-label">Step 8</div>
+        <div class="doc-section-label">Quality &amp; Advanced</div>
         <h2 class="doc-h2">Generation History</h2>
         <p>
           The <strong>History</strong> page is an audit trail of every generation job run in
@@ -566,7 +921,7 @@
 
       <!-- ── 9 · SETTINGS ──────────────────────────────────────── -->
       <section class="doc-section" id="settings">
-        <div class="doc-section-label">Step 9</div>
+        <div class="doc-section-label">Quality &amp; Advanced</div>
         <h2 class="doc-h2">AI Settings</h2>
         <p>
           The <strong>Settings</strong> page is where you configure AI provider credentials and
@@ -635,7 +990,7 @@
 
       <!-- ── 10 · ADMIN ────────────────────────────────────────── -->
       <section class="doc-section" id="admin">
-        <div class="doc-section-label">Step 10</div>
+        <div class="doc-section-label">Quality &amp; Advanced</div>
         <h2 class="doc-h2">Admin Console</h2>
         <p>
           The <strong>Admin Console</strong> is available to administrator accounts only.
