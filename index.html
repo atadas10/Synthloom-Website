@@ -116,54 +116,6 @@
     </div>
   </section>
 
-  <!-- BOOK A DEMO -->
-  <section class="section demo-section" id="book-demo">
-    <div class="demo-inner">
-      <div class="demo-copy">
-        <div class="section-label">Book a Demo</div>
-        <h2 class="section-title">See Synthloom<br />in action</h2>
-        <p class="demo-sub">
-          Get a personalised walkthrough of how Synthloom can accelerate your team's
-          data generation workflows — from model definition to million-row exports.
-        </p>
-        <ul class="demo-bullets">
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-            Live demo of the visual Rule Editor &amp; Pipeline view
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-            Walk through AI enrichment &amp; validation
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-            Q&amp;A tailored to your use case
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-            30 minutes — no commitment required
-          </li>
-        </ul>
-      </div>
-      <div class="demo-calendly">
-        <!-- Step 1: name capture -->
-        <div class="demo-prefill" id="demo-prefill">
-          <p class="demo-prefill-heading">Who should we expect?</p>
-          <div class="demo-prefill-fields">
-            <input id="demo-prefill-name" type="text" placeholder="Your full name" autocomplete="name" />
-            <input id="demo-prefill-email" type="email" placeholder="Work email" autocomplete="email" />
-          </div>
-          <button class="btn btn--primary demo-prefill-btn" id="demo-prefill-submit">
-            Pick a time &rarr;
-          </button>
-          <p class="demo-prefill-note">Calendar subject will read: <em id="demo-subject-preview">Synthloom Demo: Your Name</em></p>
-        </div>
-        <!-- Step 2: Calendly widget (rendered by JS) -->
-        <div class="demo-calendly-widget" id="demo-calendly-widget"></div>
-      </div>
-    </div>
-  </section>
-
   <!-- FEATURES GRID -->
   <section class="section" id="features">
     <div class="section-label">Core Capabilities</div>
@@ -294,13 +246,64 @@
 
   <!-- DOCS BANNER -->
   <section class="docs-banner">
-    <div class="docs-banner-inner">
-      <div class="docs-banner-text">
+    <div class="docs-banner-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:64px 32px !important;">
+      <div>
         <p class="docs-banner-label">Step-by-step tutorials</p>
-        <h3 class="docs-banner-title">New to Synthloom? Start with the docs.</h3>
-        <p class="docs-banner-sub">Detailed walkthroughs for every section of the app — from defining your first data model to validating million-row outputs.</p>
+        <h3 class="docs-banner-title" style="margin-top:12px;margin-bottom:16px;">New to Synthloom? Start with the docs.</h3>
+        <p class="docs-banner-sub" style="margin-bottom:28px;">Detailed walkthroughs for every section of the app — from defining your first data model to validating million-row outputs.</p>
+        <a href="docs.html" class="btn btn--primary">Read the Documentation &rarr;</a>
       </div>
-      <a href="docs.html" class="btn btn--primary">Read the Documentation &rarr;</a>
+      <div>
+        <iframe width="100%" height="220" src="https://www.youtube.com/embed/3zcnKvygLi0" title="Synthloom Quick Starter" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius:16px;box-shadow:0 4px 32px rgba(0,0,0,0.12);"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK A DEMO -->
+  <section class="section demo-section" id="book-demo">
+    <div class="demo-inner">
+      <div class="demo-copy">
+        <div class="section-label">Book a Demo</div>
+        <h2 class="section-title">See Synthloom<br />in action</h2>
+        <p class="demo-sub">
+          Get a personalised walkthrough of how Synthloom can accelerate your team's
+          data generation workflows — from model definition to million-row exports.
+        </p>
+        <ul class="demo-bullets">
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Live demo of the visual Rule Editor &amp; Pipeline view
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Walk through AI enrichment &amp; validation
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Q&amp;A tailored to your use case
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            30 minutes — no commitment required
+          </li>
+        </ul>
+      </div>
+      <div class="demo-calendly">
+        <!-- Step 1: name capture -->
+        <div class="demo-prefill" id="demo-prefill">
+          <p class="demo-prefill-heading">Who should we expect?</p>
+          <div class="demo-prefill-fields">
+            <input id="demo-prefill-name" type="text" placeholder="Your full name" autocomplete="name" />
+            <input id="demo-prefill-email" type="email" placeholder="Work email" autocomplete="email" />
+          </div>
+          <button class="btn btn--primary demo-prefill-btn" id="demo-prefill-submit">
+            Pick a time &rarr;
+          </button>
+          <p class="demo-prefill-note">Calendar subject will read: <em id="demo-subject-preview">Synthloom Demo: Your Name</em></p>
+        </div>
+        <!-- Step 2: Calendly widget (rendered by JS) -->
+        <div class="demo-calendly-widget" id="demo-calendly-widget"></div>
+      </div>
     </div>
   </section>
 
