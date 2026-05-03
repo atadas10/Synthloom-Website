@@ -45,6 +45,19 @@
   </nav>
 
   <style>
+        /* Match Calendly widget background to site */
+        .demo-calendly-widget iframe {
+          background: #111115 !important;
+          color-scheme: dark;
+          border-radius: 16px;
+          box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+        }
+        .demo-calendly-widget {
+          background: #111115;
+          border-radius: 16px;
+          box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+          padding: 0;
+        }
     .nav-right .btn.btn--nav {
       border-radius: 10px 10px 0 0;
       border-bottom: 3.5px solid transparent;
@@ -294,10 +307,20 @@
         </ul>
       </div>
       <div class="demo-calendly">
-        <!-- Calendly Inline Widget for synthloom-info -->
-        <div style="min-width:320px;height:630px;">
-          <iframe src="https://calendly.com/synthloom-info" style="border:0;width:100%;height:100%;min-width:320px;min-height:630px;" frameborder="0" allowfullscreen></iframe>
+        <!-- Step 1: name capture -->
+        <div class="demo-prefill" id="demo-prefill">
+          <p class="demo-prefill-heading">Who should we expect?</p>
+          <div class="demo-prefill-fields">
+            <input id="demo-prefill-name" type="text" placeholder="Your full name" autocomplete="name" />
+            <input id="demo-prefill-email" type="email" placeholder="Work email" autocomplete="email" />
+          </div>
+          <button class="btn btn--primary demo-prefill-btn" id="demo-prefill-submit">
+            Pick a time &rarr;
+          </button>
+          <p class="demo-prefill-note">Calendar subject will read: <em id="demo-subject-preview">Synthloom Demo: Your Name</em></p>
         </div>
+        <!-- Step 2: Calendly widget (rendered by JS) -->
+        <div class="demo-calendly-widget" id="demo-calendly-widget"></div>
       </div>
     </div>
   </section>
