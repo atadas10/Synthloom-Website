@@ -85,7 +85,7 @@
       // Calendly subject is driven by the event type name in your Calendly
       // dashboard — set it to: "Synthloom Demo: {Invitee Full Name}"
       Calendly.initInlineWidget({
-        url: 'https://calendly.com/atanu-synthloom?hide_event_type_details=1&hide_gdpr_banner=1&background_color=111115&text_color=e4e4e7&primary_color=7c6ff7',
+        url: 'https://calendly.com/synthloom-info?hide_event_type_details=1&hide_gdpr_banner=1&background_color=111115&text_color=e4e4e7&primary_color=7c6ff7',
         parentElement: widgetEl,
         prefill: {
           name:  name,

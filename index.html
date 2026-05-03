@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Synthloom — Intelligent Synthetic Data Generation</title>
+  <meta name="description" content="Stop hand-crafting fake data. Generate it. Synthloom produces millions of realistic, relationship-aware records in minutes — no coding required. Plug in OpenAI GPT or Anthropic Claude to generate context-aware descriptions, narratives, and realistic text fields." />
+  <meta property="og:title" content="Stop hand-crafting fake data. Generate it." />
+  <meta property="og:description" content="Synthloom produces millions of realistic, relationship-aware records in minutes — no coding required. Plug in OpenAI GPT or Anthropic Claude to generate context-aware descriptions, narratives, and realistic text fields." />
+  <meta property="og:url" content="https://info-synthloom.atanuconsulting.in" />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -289,20 +294,10 @@
         </ul>
       </div>
       <div class="demo-calendly">
-        <!-- Step 1: name capture -->
-        <div class="demo-prefill" id="demo-prefill">
-          <p class="demo-prefill-heading">Who should we expect?</p>
-          <div class="demo-prefill-fields">
-            <input id="demo-prefill-name" type="text" placeholder="Your full name" autocomplete="name" />
-            <input id="demo-prefill-email" type="email" placeholder="Work email" autocomplete="email" />
-          </div>
-          <button class="btn btn--primary demo-prefill-btn" id="demo-prefill-submit">
-            Pick a time &rarr;
-          </button>
-          <p class="demo-prefill-note">Calendar subject will read: <em id="demo-subject-preview">Synthloom Demo: Your Name</em></p>
+        <!-- Calendly Inline Widget for synthloom-info -->
+        <div style="min-width:320px;height:630px;">
+          <iframe src="https://calendly.com/synthloom-info" style="border:0;width:100%;height:100%;min-width:320px;min-height:630px;" frameborder="0" allowfullscreen></iframe>
         </div>
-        <!-- Step 2: Calendly widget (rendered by JS) -->
-        <div class="demo-calendly-widget" id="demo-calendly-widget"></div>
       </div>
     </div>
   </section>
