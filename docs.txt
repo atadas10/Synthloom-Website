@@ -1,0 +1,294 @@
+
+# Synthloom — Step-by-Step Tutorial
+
+This guide walks you through every section of the Synthloom application.
+Follow the steps in order for your first run, or jump directly to any topic using the sidebar.
+
+---
+
+## Prerequisites
+
+You need valid credentials to access Synthloom. If you don't have an account yet, request access at [www.synthloom.in](https://synthloom.atanuconsulting.in).
+
+---
+
+## The core loop
+
+Your journey with Synthloom is simple, powerful, and seamless:
+
+1. **Sign in** — Pick your workspace.
+2. **Shape data model** — Set up your structure.
+3. **Run generation** — Start the process.
+4. **Download & validate** — Get your results.
+
+---
+
+
+## 1 · Login
+
+Synthloom uses token-based authentication. Every user must log in before accessing any feature.
+
+1. **Open the application** — Navigate to [https://www.synthloom.in](https://synthloom.atanuconsulting.in/). You will be redirected to the Login page automatically.
+2. **Enter your credentials** — Type your **username** and **password** in the form fields.
+3. **Click Sign In** — On success, you are redirected to the Workspace Selector. Your session token is stored securely in memory for the duration of your browser session.
+
+![Login Page Screenshot](image/1_login.png)
+
+> **Tip:** If your session expires, Synthloom will redirect you back to the Login page automatically. Simply sign in again to resume.
+
+---
+
+
+## 2 · Workspaces
+
+Workspaces are isolated project containers. Each workspace has its own configurations, generation history, and output files — completely separate from other workspaces.
+
+### Creating a workspace
+
+1. **Open the Workspace Selector** — After login you land here automatically, or click your workspace name in the top navigation bar at any time.
+2. **Click "New Workspace"** — Enter a descriptive name (e.g. *Retail Demo*, *Healthcare Q2*). Names help you identify the project at a glance.
+3. **Confirm creation** — The new workspace is created and becomes your active context immediately. All subsequent actions apply to this workspace.
+
+![Workspace Selector Screenshot](image/2_workspace.png)
+
+### Other workspace actions
+
+| Action            | How                                                                 |
+|-------------------|---------------------------------------------------------------------|
+| Switch workspace  | Click any workspace card to make it active                          |
+| Rename workspace  | Click the pencil icon next to the workspace name                    |
+| Share workspace   | Click the share icon → enter a colleague's email and choose a role  |
+| Delete workspace  | Click the trash icon — this is permanent and removes all data       |
+
+---
+
+
+## 3 · Defining Your Data Model
+
+The **Design Studio** is where you describe your data model — the entities you want to generate, the fields they contain, and how they relate to each other.
+
+### Opening the Design Studio
+
+1. **Navigate to "Design Studio"** — Click **Design Studio** in the left navigation menu of the application.
+2. **Start a new config or load an existing one** — Click **New** to start from scratch, or select a previously saved configuration from the dropdown. You can also import a JSON file.
+
+![Design Studio Screenshot](image/3_Data_Model.png)
+
+### Adding an entity
+
+1. **Click "Add Entity"** — An entity represents a table or dataset — for example *Customers*, *Orders*, or *Products*. Give it a clear singular name.
+2. **Set the record count** — Enter how many rows you want to generate for this entity (e.g. `1000` customers, `50000` orders).
+
+### Adding fields to an entity
+
+1. **Click "+ Add Field"** — A new field row appears. Give it a name matching your target schema (e.g. `customer_id`, `email`, `created_at`).
+2. **Choose a field type** — Click the type picker to open the full type menu. Types are organized into groups:
+
+| Group        | Examples                                 |
+|------------- |------------------------------------------|
+| Identity     | UUID, Integer, Auto Increment            |
+| Personal     | Full Name, First Name, Email, Phone      |
+| Location     | City, State, Country, Zip Code, Address  |
+| Date & Time  | Date, DateTime, Timestamp, Year          |
+| Financial    | Price, Currency, Amount, IBAN            |
+| Internet     | URL, IP Address, User Agent              |
+| Business     | Company, Job Title, Department           |
+| Text         | Paragraph, Sentence, Word, Lorem Ipsum   |
+| Special      | Foreign Key, Enum, Boolean, Constant     |
+
+3. **Configure constraints (optional)** — Depending on the type you may set min/max values, allowed enums, a specific format, or mark the field for AI enrichment.
+
+![Field Type Picker Screenshot](image/3_Type_Picker.png)
+
+### Defining relationships (Foreign Keys)
+
+1. **Add a Foreign Key field** — Choose **Foreign Key** as the field type on the child entity (e.g. `customer_id` on the *Orders* entity).
+2. **Select the referenced entity and field** — Pick the parent entity (*Customers*) and the field it references (`customer_id`). Synthloom will automatically sample valid IDs from the parent during generation.
+
+> **Tip:** Use the **Relationship Graph** tab to visually inspect all foreign key links between your entities before saving.
+
+![Relationship Graph Screenshot](image/3_Data_Model.png)
+![Design Studio ER Diagram Screenshot](image/3_Data_Model_ER.png)
+
+### Saving your configuration
+
+1. **Click the Save button** — Enter a configuration name (e.g. *Retail v1*) and confirm. Configurations are stored in your active workspace and can be reused across multiple generation runs.
+2. **Export to JSON (optional)** — Use the **Export JSON** button to download the configuration file. You can version-control it in Git or share it with teammates.
+
+---
+
+
+## 4 · Running a Generation Job
+
+The **Generate** page lets you launch a generation job, configure output options, and monitor progress in real time via WebSocket updates.
+
+### Starting a generation
+
+1. **Navigate to "Pipeline"** — Click **Pipeline** in the top navigation menu.
+2. **Select a configuration** — Choose the saved configuration you created in the previous step from the dropdown. The config name and entity list are shown for confirmation.
+3. **Choose your output format**:
+
+| Format  | Best for                              |
+|---------|---------------------------------------|
+| CSV     | Spreadsheets, general-purpose tools   |
+| JSON    | APIs, document stores, web apps       |
+| Parquet | Big data pipelines, analytics engines |
+
+4. **Configure generation options**:
+
+| Option         | Description                                                        |
+|----------------|--------------------------------------------------------------------|
+| Seed           | Integer seed for reproducibility. Same seed → identical output.    |
+| Validate RI    | Run referential integrity checks after generation (recommended).   |
+| Parallel mode  | Generate independent entity groups concurrently for speed.         |
+| Enable AI      | Pass marked fields through an LLM for realistic contextual text.   |
+| AI Provider    | OpenAI or Anthropic (configured in Settings).                     |
+
+5. **Click "Generate"** — The job starts immediately. A real-time progress panel appears showing the current entity being processed, records written, and elapsed time.
+
+![Generation Dashboard screenshot](image/4_Generate.png)
+
+> **Tip:** Enable **Parallel mode** for any configuration with multiple independent entities. Generation time drops significantly on multi-core machines.
+
+### Reading the progress panel
+
+While a job runs you can see:
+
+- **Current entity** — the entity currently being generated
+- **Records written** — live count updated over WebSocket
+- **Stage** — generation level (parallel groups are labelled)
+- **Elapsed time** — wall-clock duration since job start
+- **Log tail** — last few log lines from the backend for debugging
+
+![Real-time progress panel screenshot](image/5_Generate.png)
+
+---
+
+
+## 5 · Viewing & Downloading Output
+
+The **Output Viewer** gives you a searchable, paginated data table for every generated file, plus one-click download options.
+
+1. **Navigate to view data** — After a job completes you are prompted to view the output, or navigate manually via the top "History" menu.
+2. **Select an output folder** — Each generation run produces a timestamped folder. Click a folder to see the files it contains (one file per entity by default).
+3. **Preview a file** — Click any file to load an inline data table. Use the **search bar** to filter rows, the **column selector** to hide/show fields, and the **pagination controls** to navigate large datasets.
+4. **Download** — Click **Download** to save the file in its original format (CSV, JSON, or Parquet). You can also download all files in the folder as a ZIP.
+
+![Output Viewer screenshot](image/6_View_Data.png)
+
+> **Tip:** Use the column visibility toggle to hide ID or timestamp columns and focus on the business fields when reviewing data quality.
+
+---
+
+
+## 6 · Validating Your Dataset
+
+The **Validation Results** page shows a detailed report on the quality of the last generation run — covering referential integrity, uniqueness, value ranges, and custom business-rule compliance.
+
+1. **Navigate to "Validation"** — Click **Validation** in the left menu. Results from the most recent job are loaded automatically.
+2. **Review the summary** — A top-level summary card shows the overall pass/fail status and a count of checks performed.
+3. **Inspect individual checks** — Each check is listed with its entity, field, type, and result. Failed checks show the number of violations and example values.
+
+![Validation Results Screenshot](image/5_Validation.png)
+
+### Validation check types
+
+| Check                | What it verifies                                               |
+|----------------------|---------------------------------------------------------------|
+| Referential Integrity| Every FK value in child entities exists in the parent entity   |
+| Uniqueness           | Fields marked unique have no duplicate values                  |
+| Range                | Numeric fields are within the configured min/max bounds        |
+| Not Null             | Required fields contain no null values                        |
+| Enum                 | Enum fields only contain allowed values                       |
+
+> **Note:** Validation is run automatically when *Validate RI* is enabled in the generation options. You can also trigger it manually from this page.
+
+---
+
+
+## 7 · Pipeline View
+
+The **Pipeline** page renders an interactive dependency graph of your data model, showing how entities are ordered for generation and which groups can run in parallel.
+
+1. **Navigate to "Pipeline"** — Click **Pipeline** in the left menu.
+2. **Inspect the dependency graph** — Nodes represent entities. Directed edges represent foreign key dependencies. Entities at the same generation level are highlighted together — these run concurrently in parallel mode.
+3. **Check for circular dependencies** — If a circular dependency is detected it will be flagged here in red, preventing generation until resolved in the Design Studio.
+
+![Pipeline Graph Screenshot](image/7_Pipeline_History.png)
+
+> **Tip:** Use the Pipeline view as a sanity check before running large jobs. It instantly reveals unintended dependency chains that would force sequential generation.
+
+---
+
+
+## 8 · Generation History
+
+The **History** page is an audit trail of every generation job run in the current workspace, including timestamps, configuration used, record counts, and final status.
+
+1. **Navigate to "History"** — Click **History** in the top menu.
+2. **Browse past jobs** — Each row shows the job ID, configuration name, start time, duration, total records, output format, and status (Completed / Failed / Cancelled).
+3. **Jump to output or re-run** — Click a job to open its output directly in the Output Viewer, or click **Re-run** to launch a new job with identical settings.
+
+![History Page Screenshot](image/7_Pipeline_History.png)
+
+---
+
+
+## 9 · AI Settings
+
+The **Settings** page is where you configure AI provider credentials and select the default model used for field enrichment.
+
+### Configuring OpenAI
+
+1. **Navigate to "Settings"** — Click **Settings** in the left menu.
+2. **Enter your OpenAI API key** — Paste the key (starts with `sk-…`) into the OpenAI card. Use the eye icon to verify it before saving.
+3. **Choose a model**:
+
+| Model              | Best for                        |
+|--------------------|---------------------------------|
+| GPT-4o (recommended)| Best quality / speed balance    |
+| GPT-4o Mini        | Large volumes at lower cost     |
+| GPT-4 Turbo        | Complex contextual generation   |
+| GPT-3.5 Turbo      | Fastest, lowest cost            |
+
+4. **Click "Test Connection"** — Synthloom sends a minimal ping to the API to verify the key is valid before saving.
+5. **Save** — The key is stored encrypted in the workspace settings. A masked hint (`sk-••••1234`) confirms the key is active.
+
+### Configuring Anthropic Claude
+
+The process mirrors OpenAI. Available Claude models:
+
+| Model                    | Best for                        |
+|--------------------------|---------------------------------|
+| Claude Haiku 4.5         | Fast, cost-effective enrichment |
+| Claude Opus 4.6          | Highest quality output          |
+| Claude Sonnet 4.5        | Balanced quality and speed      |
+
+![AI Settings Screenshot](image/8_AI_Enrichment.png)
+
+> **Note:** API keys are stored per-workspace. If you switch workspaces, remember to configure the AI provider in each one separately.
+
+---
+
+
+## 10 · Admin Console
+
+The **Admin Console** is available to administrator accounts only. It provides user management, workspace oversight, and system-level controls.
+
+1. **Navigate to "Admin"** — The Admin link appears in the navigation only if your account has the **admin** role.
+2. **Manage users** — View all registered users, their roles, and their active workspaces. You can promote users to admin, reset passwords, or deactivate accounts.
+3. **Oversee workspaces** — See all workspaces across all users — useful for monitoring storage usage and cleaning up orphaned workspaces.
+4. **System settings** — Configure global defaults such as the default AI provider, max parallel workers, and record count limits per workspace.
+
+![Admin Console Screenshot](image/9_admin_console.png)
+
+> **Access control:** Regular users cannot access the Admin Console. Attempting to navigate to it directly will redirect to the home page.
+
+---
+
+
+---
+
+You've completed the Synthloom tutorial. Open the app and start generating: [Open Synthloom →](https://synthloom.atanuconsulting.in/)
+
+[← Back to overview](index.html)
