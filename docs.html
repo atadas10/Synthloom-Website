@@ -30,7 +30,9 @@
       </a>
       <div class="nav-right" style="gap:0;">
         <a href="index.html" class="btn btn--ghost btn--nav nav-link-home">Home</a>
+        <a href="pricing.html" class="btn btn--ghost btn--nav nav-link-pricing">Pricing</a>
         <a href="docs.html" class="btn btn--ghost btn--nav nav-link-docs nav-link-active">Documentation</a>
+        <a href="team.html" class="btn btn--ghost btn--nav nav-link-team">Team</a>
         <a href="index.html#book-demo" class="btn btn--ghost btn--nav nav-link-demo">Book a Demo</a>
         <a href="https://synthloom.atanuconsulting.in/" target="_blank" rel="noopener" class="btn btn--nav btn--nav-open">Open App &rarr;</a>
       </div>
@@ -39,28 +41,29 @@
 
   <style>
     .nav-right .btn.btn--nav {
-      border-radius: 10px 10px 0 0;
-      border-bottom: 3.5px solid transparent;
-      margin: 0 2px;
+      border-radius: 8px;
+      border-bottom: 2px solid transparent;
+      margin: 0 1px;
       font-weight: 500;
       position: relative;
       background: transparent;
-      transition: border-color 0.2s, color 0.2s;
+      transition: all 0.2s;
     }
     .nav-right .btn.btn--nav.nav-link-active,
     .nav-right .btn.btn--nav.active {
-      border-bottom: 3.5px solid #6366f1;
+      border-bottom: 2px solid #6366f1;
       color: #fff;
-      background: rgba(99,102,241,0.07);
+      background: rgba(99,102,241,0.08);
       z-index: 2;
     }
     .nav-right .btn.btn--nav:hover {
       color: #a89af9;
     }
     .nav-right .btn.btn--nav-open {
-      margin-left: 16px;
-      border-radius: 10px;
+      margin-left: 12px;
+      border-radius: 8px;
       font-weight: 600;
+      padding: 6px 12px;
     }
   </style>
   <script>
@@ -69,12 +72,19 @@
       var path = window.location.pathname;
       var home = document.querySelector('.nav-link-home');
       var docs = document.querySelector('.nav-link-docs');
-      if (path.endsWith('docs.html')) {
+      var team = document.querySelector('.nav-link-team');
+      if (path.includes('team.html')) {
+        team && team.classList.add('nav-link-active');
+        home && home.classList.remove('nav-link-active');
+        docs && docs.classList.remove('nav-link-active');
+      } else if (path.endsWith('docs.html')) {
         docs && docs.classList.add('nav-link-active');
         home && home.classList.remove('nav-link-active');
+        team && team.classList.remove('nav-link-active');
       } else {
         home && home.classList.add('nav-link-active');
         docs && docs.classList.remove('nav-link-active');
+        team && team.classList.remove('nav-link-active');
       }
     })();
   </script>

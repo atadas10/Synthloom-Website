@@ -109,8 +109,8 @@ a {
   background: transparent;
   color: var(--text);
   border-color: var(--border);
-  padding: 8px 18px;
-  font-size: 13px;
+  padding: 6px 14px;
+  font-size: 12px;
 }
 
 .btn--nav:hover {
@@ -167,7 +167,7 @@ a {
   max-width: var(--max-w);
   margin: 0 auto;
   padding: 0 32px;
-  height: 60px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -176,7 +176,7 @@ a {
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 
 /* ── DOCS BANNER ─────────────────────────────────────────── */
@@ -879,6 +879,9 @@ a {
   .platform-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -909,6 +912,10 @@ a {
   }
 
   .platform-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-grid {
     grid-template-columns: 1fr;
   }
 
@@ -949,6 +956,82 @@ a {
   transform: translateY(0);
 }
 
+/* ── TEAM SECTION ────────────────────────────────────────── */
+
+.section-subtitle {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 48px;
+  max-width: 640px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  transition: all 0.3s ease;
+  min-width: 0;
+}
+
+.team-card:hover {
+  border-color: rgba(124, 111, 247, 0.4);
+  background: var(--surface-alt);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(124, 111, 247, 0.10);
+}
+
+.team-avatar-placeholder {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--accent-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 14px;
+  border: 2px solid var(--border);
+}
+
+.team-name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.team-role {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent-light);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.team-bio {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
 /* ── CHAT BUBBLE WIDGET ──────────────────────────────────── */
 
 .chat-toggle-btn {
@@ -981,10 +1064,11 @@ a {
 
 .chat-bubble-container {
   position: fixed;
-  bottom: 100px;
+  bottom: 32px;
   right: 32px;
   width: 392px;
   height: 560px;
+  max-height: calc(100vh - 150px);
   background: #0e0e11;
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 20px;
@@ -992,8 +1076,7 @@ a {
   flex-direction: column;
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.65),
               0 0 0 1px rgba(99, 102, 241, 0.08);
-  transform: translateY(16px) scale(0.97);
-  transform-origin: bottom right;
+  transform: scale(0.97);
   transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 1000;
   opacity: 0;
@@ -1002,7 +1085,7 @@ a {
 }
 
 .chat-bubble-container.open {
-  transform: translateY(0) scale(1);
+  transform: scale(1);
   opacity: 1;
   pointer-events: auto;
 }
@@ -1189,12 +1272,30 @@ a {
   }
 }
 
+@media (max-width: 768px) {
+  .chat-bubble-container {
+    width: calc(100vw - 32px);
+    height: calc(100vh - 150px);
+    max-height: 520px;
+    bottom: 32px;
+    right: 16px;
+    overflow: hidden;
+  }
+
+  .chat-toggle-btn {
+    bottom: 20px;
+    right: 16px;
+  }
+}
+
 @media (max-width: 480px) {
   .chat-bubble-container {
     width: calc(100vw - 24px);
-    height: 480px;
-    bottom: 80px;
+    height: calc(100vh - 140px);
+    max-height: 450px;
+    bottom: 32px;
     right: 12px;
+    overflow: hidden;
   }
 
   .chat-toggle-btn {

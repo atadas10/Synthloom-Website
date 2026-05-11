@@ -84,6 +84,11 @@
       name: 'default',
       keywords: [],
       response: 'Great question! 🤔\n\nI can help with:\n\n• **Provisioning** — Get set up & account setup\n• **Get Access** — Login, credentials, app URL\n• **Generate Data** — Run generation jobs\n• **Data Model** — Design Studio, entities, fields\n• **Field Types** — Available data types\n• **Validation** — Check data quality\n• **Outputs** — Export formats (CSV, JSON, Parquet, SQL)\n• **AI Enrichment** — GPT-4 & Claude integration\n• **Relationships** — Foreign keys & linking\n• **Pipeline** — DAG engine & parallelization\n\n**Need more?** Visit docs: https://info-synthloom.atanuconsulting.in/docs.html'
+    },
+    PRICING: {
+      name: 'pricing',
+      keywords: ['pricing', 'price', 'cost', 'plans', 'subscription', 'free', 'paid', 'pro', 'enterprise', 'saas', 'self hosted'],
+      response: '💸 **Pricing Plans**\n\n**Individual — Free** (SaaS)\n• Up to **10 data models**\n• Storage for **2 generations per model**\n• No limit on number of entities\n• No limit on number of generations\n\n**Individual — Pro** (Self Hosted)\n• Self-hosted via Docker\n• All features of SaaS version\n• Contact us for pricing\n\n**Enterprise — Paid** (Self Hosted)\n• Self-hosted via Docker\n• Enterprise features & support\n• Contact us for pricing\n\n📅 View full details: https://info-synthloom.atanuconsulting.in/pricing.html'
     }
   };
 
@@ -179,7 +184,7 @@
     chatContainer.classList.toggle('open');
     toggleBtn.style.display = chatContainer.classList.contains('open') ? 'none' : 'block';
     if (chatContainer.classList.contains('open')) {
-      setTimeout(() => chatInput.focus(), 300);
+      setTimeout(() => chatInput.focus({ preventScroll: true }), 300);
     }
   });
 

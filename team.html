@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Team — Synthloom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+        <span class="brand-icon" style="display:inline-flex;align-items:center;">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+            <rect x="4" y="4" width="30" height="30" rx="8" fill="#E8EDF3"/>
+            <rect x="12" y="13" width="14" height="2.5" rx="1.25" fill="#818cf8"/>
+            <rect x="12" y="18" width="10" height="2.5" rx="1.25" fill="#6366f1"/>
+            <rect x="12" y="23" width="6" height="2.5" rx="1.25" fill="#4f46e5"/>
+          </svg>
+        </span>
+        <span class="brand-name" style="font-family:var(--font-display);font-size:1.7rem;font-weight:600;letter-spacing:-0.5px;">
+          <span style="color:#fff;">Synth</span><em class="brand-accent" style="font-style:normal;color:#6366f1;">loom</em>
+        </span>
+      </a>
+      <div class="nav-right" style="gap:0;">
+        <a href="index.html" class="btn btn--ghost btn--nav nav-link-home">Home</a>
+        <a href="pricing.html" class="btn btn--ghost btn--nav nav-link-pricing">Pricing</a>
+        <a href="docs.html" class="btn btn--ghost btn--nav nav-link-docs">Documentation</a>
+        <a href="team.html" class="btn btn--ghost btn--nav nav-link-team nav-link-active">Team</a>
+        <a href="index.html#book-demo" class="btn btn--ghost btn--nav nav-link-demo">Book a Demo</a>
+        <a href="https://synthloom.atanuconsulting.in/" target="_blank" rel="noopener" class="btn btn--nav btn--nav-open">Open App &rarr;</a>
+      </div>
+    </div>
+  </nav>
+
+  <style>
+    .nav-right .btn.btn--nav {
+      border-radius: 8px;
+      border-bottom: 2px solid transparent;
+      margin: 0 1px;
+      font-weight: 500;
+      position: relative;
+      background: transparent;
+      transition: all 0.2s;
+    }
+    .nav-right .btn.btn--nav.nav-link-active,
+    .nav-right .btn.btn--nav.active {
+      border-bottom: 2px solid #6366f1;
+      color: #fff;
+      background: rgba(99,102,241,0.08);
+      z-index: 2;
+    }
+    .nav-right .btn.btn--nav:hover {
+      color: #a89af9;
+    }
+    .nav-right .btn.btn--nav-open {
+      margin-left: 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      padding: 6px 12px;
+    }
+  </style>
+
+  <script>
+    // Fluid underline highlight for nav
+    (function() {
+      var path = window.location.pathname;
+      var home = document.querySelector('.nav-link-home');
+      var docs = document.querySelector('.nav-link-docs');
+      var team = document.querySelector('.nav-link-team');
+      if (path.includes('team.html')) {
+        team && team.classList.add('nav-link-active');
+        home && home.classList.remove('nav-link-active');
+        docs && docs.classList.remove('nav-link-active');
+      } else if (path.includes('docs.html')) {
+        docs && docs.classList.add('nav-link-active');
+        home && home.classList.remove('nav-link-active');
+        team && team.classList.remove('nav-link-active');
+      } else {
+        home && home.classList.add('nav-link-active');
+        docs && docs.classList.remove('nav-link-active');
+        team && team.classList.remove('nav-link-active');
+      }
+    })();
+  </script>
+  <section class="section" id="team" style="padding: 120px 32px;">
+    <div style="max-width: 1160px; margin: 0 auto;">
+      <div class="section-label">Our Team</div>
+      <h2 class="section-title">Meet the makers</h2>
+      <p class="section-subtitle">Built by data professional passionate about making data generation accessible.</p>
+      
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="image/Team/Atanu.PNG" alt="Atanu Das" class="team-avatar-photo" style="width:92px;height:92px;border-radius:50%;object-fit:cover;margin-bottom:16px;border:2px solid var(--border);background:#222;" />
+          <h3 class="team-name" style="font-size:20px; margin-bottom:2px;">Atanu Das</h3>
+          <p class="team-role" style="font-size:11px; margin-bottom:10px;">Architect & Designer</p>
+          <p class="team-bio">Leading the vision for intelligent data synthesis.</p>
+          <a href="https://www.linkedin.com/in/atanudas/" target="_blank" rel="noopener" class="team-linkedin" title="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; color:#7c6ff7;"><rect x="2" y="2" width="20" height="20" rx="5" fill="none"/><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 0 0-4 0"/></svg>
+          </a>
+        </div>
+        
+        <div class="team-card">
+          <img src="image/Team/Moumita.jpg" alt="Moumita Sarkar" class="team-avatar-photo" style="width:92px;height:92px;border-radius:50%;object-fit:cover;margin-bottom:16px;border:2px solid var(--border);background:#222;" />
+          <h3 class="team-name" style="font-size:20px; margin-bottom:2px;">Moumita Sarkar</h3>
+          <p class="team-role" style="font-size:11px; margin-bottom:10px;">Product Manager & Lead Engineer</p>
+          <p class="team-bio">Architecting scalable data generation pipelines.</p>
+          <a href="https://www.linkedin.com/in/moumita-sarkar/" target="_blank" rel="noopener" class="team-linkedin" title="LinkedIn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; color:#7c6ff7;"><rect x="2" y="2" width="20" height="20" rx="5" fill="none"/><path d="M8 11v5"/><path d="M8 8v.01"/><path d="M12 16v-5"/><path d="M16 16v-3a2 2 0 0 0-4 0"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-copy">&copy; 2024 Synthloom. All rights reserved.</div>
+    <div style="font-size:13px;color:var(--muted);"><a href="index.html" style="color:var(--accent-light);text-decoration:none;transition:color 0.2s;">← Back to home</a></div>
+  </footer>
+
+  <!-- CHAT BUBBLE -->
+  <button class="chat-toggle-btn" id="chat-toggle" title="Open chat">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+  </button>
+
+  <div class="chat-bubble-container" id="chat-bubble">
+    <div class="chat-bubble-header">
+      <span class="chat-status-dot"></span>
+      <span class="chat-bubble-title">Synthloom</span>
+      <button class="chat-close" id="chat-close" title="Close chat">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+      </button>
+    </div>
+    <div class="chat-messages" id="chat-messages"></div>
+    <div class="chat-input-area">
+      <input type="text" id="chat-input" placeholder="Ask me anything..." class="chat-input" />
+      <button id="chat-send" class="chat-send-btn" title="Send">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="chatbot.js"></script>
+</body>
+</html>
