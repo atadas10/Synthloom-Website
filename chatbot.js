@@ -8,41 +8,51 @@
 
   const chatMessages = document.getElementById('chat-messages');
   const chatInput = document.getElementById('chat-input');
-  const sendBtn = document.getElementById('send-chat');
+  const sendBtn = document.getElementById('send-chat') || document.getElementById('chat-send');
   const toggleBtn = document.getElementById('chat-toggle');
-  const closeBtn = document.getElementById('close-chat');
+  const closeBtn = document.getElementById('close-chat') || document.getElementById('chat-close');
   const chatContainer = document.getElementById('chat-bubble');
 
   // ── INTENT-BASED KNOWLEDGE BASE ────────────────────────────
   const intents = {
+    ABOUT: {
+      name: 'about',
+      keywords: ['about', 'what is synthloom', 'tell me about', 'who are you', 'features', 'benefits', 'purpose', 'what do you do', 'what can you do'],
+      response: '🌟 **About Synthloom:**\n\nSynthloom is an **intelligent synthetic data generation platform** that creates realistic, privacy-safe test data at scale.\n\n**What we do:**\n• Generate millions of realistic data records in minutes\n• Maintain perfect referential integrity with relationships & foreign keys\n• Support 100+ field types (Customer, Order, Product, etc.)\n• Export as CSV, JSON, Parquet, or SQL\n• Optional AI enrichment for natural descriptions\n\n**Why Synthloom?**\n✅ **Privacy** — No real data needed\n✅ **Speed** — Generate 1M+ records instantly\n✅ **Flexibility** — Design any data model visually\n✅ **Quality** — 100% referentially intact\n✅ **Compliance** — GDPR & privacy-ready\n\n**Use cases:**\n• Testing & QA\n• Development databases\n• ML/AI training data\n• Performance benchmarking\n• Demo environments\n\n**Get started free:**\n→ Visit: https://app.synthloom.atanuconsulting.in/'
+    },
+    BENEFITS: {
+      name: 'benefits',
+      keywords: ['help me', 'how can it help', 'benefit', 'advantage', 'solve', 'problem', 'use case', 'why should', 'value'],
+      response: '💡 **How Synthloom Helps You:**\n\n**For Developers & QA:**\n• Instant test data without manual setup\n• Realistic scenarios for testing\n• No need to copy production data\n\n**For Data Teams:**\n• Perfect ML/AI training datasets\n• Privacy-compliant alternatives to production\n• 100% relational integrity maintained\n\n**For DevOps & Architects:**\n• Load testing with realistic scale\n• Demo environments in seconds\n• Self-hosted or SaaS options\n\n**For Everyone:**\n💪 **Faster Development** — No manual data creation\n🔒 **Complete Privacy** — No sensitive data exposure\n⚡ **Instant Scale** — 1M+ records in minutes\n✅ **High Quality** — Perfect data relationships\n🎯 **Any Model** — Design exactly what you need\n\n**Start for free:**\n→ 10 data models, unlimited generations: https://app.synthloom.atanuconsulting.in/'
+    },
     GREETING: {
       name: 'greeting',
-      keywords: ['hello', 'hi', 'hey', 'start', 'help', 'greet', 'introduction', 'welcome'],
-      response: 'Hi there! 👋 I can help you with:\n\n• **Provisioning** — Get set up with Synthloom\n• **Getting Access** — Log in and start\n• **Generate Data** — Create synthetic records\n• **Data Modeling** — Design Studio & entities\n• **Validation** — Check data quality\n• **Output** — Export formats\n\nWhat would you like to know?'
+      keywords: ['hello', 'hi', 'hey', 'greet', 'introduction', 'welcome'],
+      response: 'Hi there! 👋 I can help you with:\n\n• **About Synthloom** — Learn what we do\n• **Getting Started** — Setup & first steps\n• **Getting Access** — Login & credentials\n• **Generate Data** — Create synthetic records\n• **Data Modeling** — Design Studio & entities\n• **Field Types** — Available data types\n• **Validation & Quality** — Check your data\n• **Export Formats** — CSV, JSON, Parquet, SQL\n\nWhat would you like to know?'
     },
     PROVISIONING: {
       name: 'provisioning',
-      keywords: ['provision', 'setup', 'get started', 'onboard', 'install', 'configure', 'initial', 'first', 'quickstart', 'begin', 'account'],
-      response: '🎯 **Getting Started:**\n\n**1. Get access**\n   Visit synthloom.atanuconsulting.in/ and sign in, or book a demo to receive credentials.\n\n**2. Create a workspace**\n   Click "New Workspace" and give it a name.\n\n**3. Design your data model**\n   Open Design Studio, add entities and configure fields.\n\n**4. Generate & download**\n   Run your job, then download as CSV, JSON or Parquet.\n\n💡 Start with 100–1 000 rows to validate your structure quickly.'
+      keywords: ['get started', 'getting started', 'how do i get started', 'setup', 'onboard', 'install', 'configure', 'initial', 'first', 'quickstart', 'begin', 'start', 'provision', 'account'],
+      response: '🎯 **Getting Started with Synthloom:**\n\n**Step 1: Get Access**\n   Visit: https://app.synthloom.atanuconsulting.in/\n   Sign up for free OR book a demo for credentials\n\n**Step 2: Create Workspace**\n   Click "New Workspace" and name it\n\n**Step 3: Design Your Data Model**\n   • Go to "Design Studio"\n   • Click "+ Add Entity" (Customer, Order, Product, etc.)\n   • For each entity, add fields\n   • Set data types & constraints\n   • Define relationships (foreign keys)\n\n**Step 4: Generate Data**\n   • Click "Generate"\n   • Choose output format (CSV, JSON, Parquet)\n   • Set record count\n   • Click "Start Job"\n\n**Step 5: Download & Use**\n   • Wait for completion\n   • Click "Download"\n   • Use in your app, tests, or pipeline!\n\n💡 **Pro tip:** Start small (100–1,000 rows) to validate your model first.'
     },
     GET_ACCESS: {
       name: 'get_access',
-      keywords: ['access', 'login', 'sign in', 'credentials', 'password', 'username', 'open app', 'launch', 'where', 'url', 'link'],
-      response: '🔑 **Access & Login:**\n\n**Live App URL:**\nhttps://synthloom.atanuconsulting.in/\n\n**Steps to access:**\n1. Go to the link above\n2. Enter your username & password\n3. Select or create a workspace\n4. Start generating data!\n\n**Don\'t have credentials?**\n📅 Book a demo: https://info-synthloom.atanuconsulting.in/#book-demo\nWe\'ll set you up with access!\n\n**Forgot password?**\nContact support or book a demo for help.'
+      keywords: ['access', 'login', 'sign in', 'credentials', 'password', 'username', 'open app', 'launch', 'where', 'url', 'link', 'how do i access'],
+      response: '🔑 **Access & Login:**\n\n**Live App URL:**\nhttps://app.synthloom.atanuconsulting.in/\n\n**Steps to access:**\n1. Go to the link above\n2. Sign up (free tier) or use your credentials\n3. Select or create a workspace\n4. Start generating data!\n\n**Free Tier Includes:**\n• Up to 10 data models\n• 2 generations per model\n• Unlimited entities & fields\n• All export formats\n\n**Don\'t have credentials?**\n📅 **Book a Demo:** https://info-synthloom.atanuconsulting.in/#book-demo\nWe\'ll provide instant access!\n\n**Forgot password?**\nEmail support through the app or book a demo.'
     },
     GENERATE_DATA: {
       name: 'generate_data',
       keywords: ['generate', 'generation', 'create data', 'run', 'execute', 'start job', 'produce', 'output', 'records', 'run generation', 'start generating'],
-      response: '▶️ **Generating Data:**\n\n**Before you start:**\n1. Open **Design Studio**\n2. Add entities (Customer, Order, etc.)\n3. Configure fields and types\n4. Set record counts\n5. Check the **Pipeline View** for ordering\n\n**To run:**\n1. Click **Generate**\n2. Choose output format — CSV, JSON, Parquet or SQL\n3. Click **Start Job**\n4. Watch live progress\n5. Download when complete\n\n⚡ Independent entities run in parallel for speed.\n✅ A validation report is always included.'
+      response: '▶️ **Generating Data:**\n\n**Before you start:**\n1. Open **Design Studio**\n2. Add entities (Customer, Order, Product, etc.)\n3. Configure fields and types\n4. Set record counts\n5. Check the **Pipeline View** for ordering\n\n**To run:**\n1. Click **Generate**\n2. Choose output format — CSV, JSON, Parquet or SQL\n3. Click **Start Job**\n4. Watch live progress\n5. Download when complete\n\n⚡ Independent entities run in parallel for speed.\n✅ A validation report is always included.\n\n**Typical times:**\n• 1,000 records: <1 second\n• 100,000 records: 5–10 seconds\n• 1M+ records: 30–60 seconds'
     },
     DATA_MODEL: {
       name: 'data_model',
       keywords: ['model', 'design studio', 'entity', 'entities', 'field', 'fields', 'schema', 'structure', 'table', 'column', 'configure', 'add entity', 'add field'],
-      response: '📐 **Data Modeling in Design Studio:**\n\n**Three core concepts:**\n\n1️⃣ **Entities** (Tables)\n   • Customer, Order, Product, etc.\n   • Each entity = one output file\n   • Add with "+ Add Entity"\n   • Set record count\n\n2️⃣ **Fields** (Columns)\n   • Define data: name, type, constraints\n   • Types: String, Integer, Email, Phone, Date, UUID, etc.\n   • Add with "+ Add Field"\n   • Set min/max, unique, nullable, etc.\n\n3️⃣ **Relationships** (Foreign Keys)\n   • Link entities (Order → Customer)\n   • Automatic referential integrity\n   • Type: Foreign Key\n\n**Workflow:**\n1. New Config → Add Entity → Add Fields → Define FK → Check Pipeline → Generate\n\n💡 The Pipeline shows your entity dependency order visually!'
+      response: '📐 **Data Modeling in Design Studio:**\n\n**Three core concepts:**\n\n1️⃣ **Entities** (Tables)\n   • Customer, Order, Product, Invoice, etc.\n   • Each entity = one output file\n   • Add with "+ Add Entity"\n   • Set record count per entity\n\n2️⃣ **Fields** (Columns)\n   • Define data: name, type, constraints\n   • Types: String, Integer, Email, Phone, Date, UUID, etc.\n   • Add with "+ Add Field"\n   • Set min/max, unique, nullable, format, etc.\n\n3️⃣ **Relationships** (Foreign Keys)\n   • Link entities (Order.customer_id → Customer.id)\n   • Automatic referential integrity\n   • Type: Foreign Key\n   • Synthloom ensures every FK is valid\n\n**Workflow:**\n1. New Config → Add Entities → Add Fields → Define FKs → Preview Pipeline → Generate\n\n💡 The Pipeline shows your entity dependency order visually!'
     },
     FIELD_TYPES: {
       name: 'field_types',
-      keywords: ['type', 'field type', 'types', 'available types', 'uuid', 'email', 'phone', 'date', 'integer', 'string', 'enum'],
+      keywords: ['type', 'field type', 'types', 'available types', 'uuid', 'email', 'phone', 'date', 'integer', 'string', 'enum', 'what types'],
       response: '📋 **Field Types Available:**\n\n**🆔 Identity**\n  UUID, Integer ID, Auto Increment, ULID\n\n**👤 Personal**\n  Full Name, First/Last Name, Email, Phone, Username\n  Password Hash, Avatar URL\n\n**🏠 Location**\n  Street Address, City, State, Country, Zip Code\n  Latitude, Longitude, Timezone\n\n**📅 Date & Time**\n  Date, DateTime, Timestamp (Unix), Time\n  Year, Month, Day, Hour\n\n**💰 Finance**\n  Currency, Credit Card, Bank Account, IBAN, BIC\n  Stock Ticker, Cryptocurrency\n\n**📊 Numeric**\n  Integer, Float, Decimal, Boolean, Percentage\n\n**📝 Text**\n  String, Paragraph, Slug, URL, JSON, Markdown\n\n**🎲 Other**\n  Enum (custom values), Color, Hex, Binary\n\n**Constraints** (all types):\n• Unique, Nullable, Min/Max\n• Format, Prefix/Suffix, Text Enrichment'
     },
     VALIDATION: {
@@ -53,7 +63,7 @@
     OUTPUTS: {
       name: 'outputs',
       keywords: ['output', 'export', 'download', 'format', 'csv', 'json', 'parquet', 'sql', 'database', 'file'],
-      response: '📤 **Output Formats:**\n\n**Available formats:**\n\n📄 **CSV** (Comma-Separated Values)\n  • Excel-friendly\n  • Universal support\n  • Good for small-medium datasets\n\n📋 **JSON** (JavaScript Object Notation)\n  • Flexible structure\n  • Per-entity files or merged\n  • API-friendly\n\n🗄️ **Parquet** (Columnar Storage)\n  • Big data pipelines (Spark, Arrow)\n  • Most efficient for large datasets\n  • Compressed\n\n🛢️ **SQL** (Direct Database Write)\n  • Write to MySQL, PostgreSQL, etc.\n  • Automatic table creation\n  • No intermediate files\n\n**How to export:**\n1. Generation completes\n2. Go to "Output & Download"\n3. Choose format\n4. Click Download\n5. Use in your pipeline!\n\n💡 **Pro tip:** Use Parquet for 1M+ records'
+      response: '📤 **Output Formats:**\n\n**Available formats:**\n\n📄 **CSV** (Comma-Separated Values)\n  • Excel-friendly\n  • Universal support\n  • Good for small-medium datasets\n\n📋 **JSON** (JavaScript Object Notation)\n  • Flexible structure\n  • Per-entity files or merged\n  • API-friendly\n\n🗄️ **Parquet** (Columnar Storage)\n  • Big data pipelines (Spark, Arrow)\n  • Most efficient for large datasets\n  • Compressed\n\n🛢️ **SQL** (Direct Database Write) *Coming Soon*\n  • Write to MySQL, PostgreSQL, etc.\n  • Automatic table creation\n  • No intermediate files\n\n**How to export:**\n1. Generation completes\n2. Go to "Output & Download"\n3. Choose format\n4. Click Download\n5. Use in your pipeline!\n\n💡 **Pro tip:** Use Parquet for 1M+ records'
     },
     AI_ENRICHMENT: {
       name: 'ai_enrichment',
@@ -126,6 +136,20 @@
 
   function classifyIntent(userInput) {
     const input = userInput.toLowerCase().trim();
+    
+    // Handle number shortcuts
+    const numberMap = {
+      '1': intents.ABOUT,
+      '2': intents.PROVISIONING,
+      '3': intents.GENERATE_DATA,
+      '4': intents.DATA_MODEL,
+      '5': intents.OUTPUTS
+    };
+    
+    if (numberMap[input]) {
+      return numberMap[input];
+    }
+    
     let bestMatch = { intent: intents.DEFAULT, score: 0 };
 
     // Check each intent
@@ -202,6 +226,6 @@
 
   // Welcome message
   setTimeout(() => {
-    addMessage('Hi there 👋\n\nWhat can I help you with?\n\n• Getting started & access\n• Generating synthetic data\n• Data modeling & field types\n• Exports, validation & more', 'bot');
+    addMessage('Hi there 👋\n\nWhat can I help you with?\n\n**Type a number or ask anything:**\n1️⃣ About Synthloom — Learn what we do & benefits\n2️⃣ Getting started & access — Setup & login\n3️⃣ Generating synthetic data — Run generation jobs\n4️⃣ Data modeling & field types — Design Studio & entities\n5️⃣ Exports, validation & more — Quality checks & formats\n\nOr just type your question naturally!', 'bot');
   }, 500);
 })();

@@ -8,7 +8,7 @@ Follow the steps in order for your first run, or jump directly to any topic usin
 
 ## Prerequisites
 
-You need valid credentials to access Synthloom. If you don't have an account yet, request access at [www.synthloom.in](https://synthloom.atanuconsulting.in).
+You need valid credentials to access Synthloom. If you don't have an account yet, request access at [www.synthloom.in](https://app.synthloom.atanuconsulting.in).
 
 ---
 
@@ -28,7 +28,7 @@ Your journey with Synthloom is simple, powerful, and seamless:
 
 Synthloom uses token-based authentication. Every user must log in before accessing any feature.
 
-1. **Open the application** — Navigate to [https://www.synthloom.in](https://synthloom.atanuconsulting.in/). You will be redirected to the Login page automatically.
+1. **Open the application** — Navigate to [https://www.synthloom.in](https://app.synthloom.atanuconsulting.in/). You will be redirected to the Login page automatically.
 2. **Enter your credentials** — Type your **username** and **password** in the form fields.
 3. **Click Sign In** — On success, you are redirected to the Workspace Selector. Your session token is stored securely in memory for the duration of your browser session.
 
@@ -289,6 +289,6 @@ The **Admin Console** is available to administrator accounts only. It provides u
 
 ---
 
-You've completed the Synthloom tutorial. Open the app and start generating: [Open Synthloom →](https://synthloom.atanuconsulting.in/)
+You've completed the Synthloom tutorial. Open the app and start generating: [Open Synthloom →](https://app.synthloom.atanuconsulting.in/)
 
 [← Back to overview](index.html)
